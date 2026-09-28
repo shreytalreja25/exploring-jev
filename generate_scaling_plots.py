@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-# Set high-quality style
+# Set high-quality publication styling
 sns.set_theme(style="whitegrid", palette="muted")
 plt.rcParams.update({
     "font.size": 11,
@@ -17,232 +17,179 @@ plt.rcParams.update({
     "figure.dpi": 300,
 })
 
-RESULTS_FILE = os.path.join(os.path.dirname(__file__), "native_jev_scaling_results.json")
-FIG_DIR = os.path.join(os.path.dirname(__file__), "figures")
+CURR_DIR = os.path.dirname(__file__)
+JEV_FILE = os.path.join(CURR_DIR, "native_jev_scaling_results.json")
+LAYA_FILE = os.path.join(CURR_DIR, "laya_scaling_results.json")
+FIG_DIR = os.path.join(CURR_DIR, "figures")
 os.makedirs(FIG_DIR, exist_ok=True)
 
-with open(RESULTS_FILE, "r", encoding="utf-8") as f:
-    data = json.load(f)
+with open(JEV_FILE, "r", encoding="utf-8") as f:
+    jev_data = json.load(f)
 
-scale_history = data["scale_metrics_history"]
-granular = data["granular_results"]
+with open(LAYA_FILE, "r", encoding="utf-8") as f:
+    laya_data = json.load(f)
 
 scales = [10, 20, 30, 40, 50]
 scale_labels = [f"N={s}" for s in scales]
 
-jev_acc = [scale_history[f"N={s}"]["jev_accuracy"] for s in scales]
-gem_acc = [scale_history[f"N={s}"]["gemini_accuracy"] for s in scales]
-agreement = [scale_history[f"N={s}"]["agreement_rate"] for s in scales]
+# Accuracies
+jev_acc = [jev_data["scale_metrics_history"][f"N={s}"]["jev_accuracy"] for s in scales]
+gem_acc = [jev_data["scale_metrics_history"][f"N={s}"]["gemini_accuracy"] for s in scales]
+laya_acc = [laya_data["laya_scale_metrics"][f"N={s}"]["accuracy"] for s in scales]
 
-jev_mean_lat = [scale_history[f"N={s}"]["jev_latency"]["mean_ms"] for s in scales]
-jev_p50_lat = [scale_history[f"N={s}"]["jev_latency"]["p50_ms"] for s in scales]
-gem_mean_lat = [scale_history[f"N={s}"]["gemini_latency"]["mean_ms"] for s in scales]
-gem_p50_lat = [scale_history[f"N={s}"]["gemini_latency"]["p50_ms"] for s in scales]
+# Latencies (P50)
+jev_p50 = [jev_data["scale_metrics_history"][f"N={s}"]["jev_latency"]["p50_ms"] for s in scales]
+gem_p50 = [jev_data["scale_metrics_history"][f"N={s}"]["gemini_latency"]["p50_ms"] for s in scales]
+laya_p50 = [laya_data["laya_scale_metrics"][f"N={s}"]["p50_latency_ms"] for s in scales]
 
-jev_ece = [scale_history[f"N={s}"]["jev_ece"] for s in scales]
-jev_conf = [scale_history[f"N={s}"]["jev_mean_confidence"] * 100 for s in scales]
+# ECE
+jev_ece = [jev_data["scale_metrics_history"][f"N={s}"]["jev_ece"] for s in scales]
+laya_ece = [laya_data["laya_scale_metrics"][f"N={s}"]["ece"] for s in scales]
 
-jev_cost = [scale_history[f"N={s}"]["jev_cumulative_cost_usd"] * 1000 for s in scales] # in millicents / $0.001
-gem_cost = [scale_history[f"N={s}"]["gemini_cumulative_cost_usd"] * 1000 for s in scales]
+# Costs (in USD)
+jev_cost = [jev_data["scale_metrics_history"][f"N={s}"]["jev_cumulative_cost_usd"] for s in scales]
+gem_cost = [jev_data["scale_metrics_history"][f"N={s}"]["gemini_cumulative_cost_usd"] for s in scales]
+laya_cost = [0.0 for _ in scales]
 
 # -------------------------------------------------------------
-# PLOT 1: Multi-Scale Accuracy & Consensus (Dual Model Bar/Line)
+# PLOT 1: 3-Way Accuracy Comparison
 # -------------------------------------------------------------
-fig, ax = plt.subplots(figsize=(7, 4.5))
-bar_width = 0.28
+fig, ax = plt.subplots(figsize=(8, 4.5))
+bar_w = 0.25
 x = np.arange(len(scales))
 
-ax.bar(x - bar_width/2, jev_acc, width=bar_width, label="Native Jev (System-One)", color="#1f77b4", alpha=0.9)
-ax.bar(x + bar_width/2, gem_acc, width=bar_width, label="Gemini 2.5 Flash", color="#2ca02c", alpha=0.9)
-ax.plot(x, agreement, color="#d62728", marker="o", linewidth=2.2, label="Model Agreement (%)", linestyle="--")
+ax.bar(x - bar_w, jev_acc, width=bar_w, label="Native Jev (System-One)", color="#1f77b4")
+ax.bar(x, laya_acc, width=bar_w, label="Laya (ModernBERT-Large, Open)", color="#ff7f0e")
+ax.bar(x + bar_w, gem_acc, width=bar_w, label="Google Gemini 2.5 Flash", color="#2ca02c")
 
-ax.set_ylim(90, 105)
+ax.set_ylim(85, 105)
 ax.set_xticks(x)
 ax.set_xticklabels(scale_labels)
 ax.set_xlabel("Workload Scale (Number of Evaluated Emails)")
-ax.set_ylabel("Metric Score (%)")
-ax.set_title("Multi-Scale Decision Accuracy & Consensus Rate (N=10 -> 50)", weight="bold")
+ax.set_ylabel("Classification Accuracy (%)")
+ax.set_title("Three-Way Decision Accuracy Matrix: Jev vs. Laya vs. Gemini 2.5", weight="bold")
 ax.legend(loc="lower right", frameon=True)
+
 for i in range(len(scales)):
-    ax.text(x[i] - bar_width/2, jev_acc[i] + 0.6, f"{jev_acc[i]:.0f}%", ha="center", fontsize=9, weight="bold", color="#1f77b4")
-    ax.text(x[i] + bar_width/2, gem_acc[i] + 0.6, f"{gem_acc[i]:.0f}%", ha="center", fontsize=9, weight="bold", color="#2ca02c")
+    ax.text(x[i] - bar_w, jev_acc[i] + 0.6, f"{jev_acc[i]:.0f}%", ha="center", fontsize=8.5, weight="bold", color="#1f77b4")
+    ax.text(x[i], laya_acc[i] + 0.6, f"{laya_acc[i]:.0f}%", ha="center", fontsize=8.5, weight="bold", color="#d95f02")
+    ax.text(x[i] + bar_w, gem_acc[i] + 0.6, f"{gem_acc[i]:.0f}%", ha="center", fontsize=8.5, weight="bold", color="#2ca02c")
 
 plt.tight_layout()
-p1_path = os.path.join(FIG_DIR, "multi_scale_accuracy_consensus.png")
-plt.savefig(p1_path)
+p1 = os.path.join(FIG_DIR, "multi_scale_accuracy_consensus.png")
+plt.savefig(p1)
 plt.close()
-print(f"[+] Saved: {p1_path}")
 
 # -------------------------------------------------------------
-# PLOT 2: Latency Profile Across Scales (Mean & P50)
+# PLOT 2: 3-Way Latency Comparison (P50 Median)
 # -------------------------------------------------------------
-fig, ax = plt.subplots(figsize=(7.5, 4.5))
-ax.plot(scale_labels, jev_mean_lat, marker="s", linewidth=2, color="#1f77b4", label="Jev Mean Latency")
-ax.plot(scale_labels, jev_p50_lat, marker="^", linewidth=2, linestyle=":", color="#17becf", label="Jev P50 Latency")
-ax.plot(scale_labels, gem_mean_lat, marker="o", linewidth=2, color="#2ca02c", label="Gemini Mean Latency")
-ax.plot(scale_labels, gem_p50_lat, marker="d", linewidth=2, linestyle=":", color="#8c564b", label="Gemini P50 Latency")
+fig, ax = plt.subplots(figsize=(8, 4.5))
+ax.plot(scale_labels, jev_p50, marker="s", linewidth=2.2, color="#1f77b4", label="Jev P50 (OpenRouter Hosted)")
+ax.plot(scale_labels, laya_p50, marker="^", linewidth=2.2, color="#ff7f0e", label="Laya P50 (Local CPU, ModernBERT)")
+ax.plot(scale_labels, gem_p50, marker="o", linewidth=2.2, color="#2ca02c", label="Gemini 2.5 Flash P50 (Cloud API)")
 
 ax.set_xlabel("Workload Scale")
-ax.set_ylabel("Latency (milliseconds)")
-ax.set_title("Inference Latency Profile Across Increasing Workload Scales", weight="bold")
-ax.legend(loc="upper left", frameon=True)
+ax.set_ylabel("Median P50 Latency (ms)")
+ax.set_title("Inference Latency Profile: Local CPU vs. Cloud Endpoints", weight="bold")
+ax.legend(loc="center right", frameon=True)
 
-# Annotate fast-path vs queueing
-ax.annotate(
-    "Gemini Sub-Second Baseline (~950ms P50)",
-    xy=(2, 950), xytext=(1.5, 2500),
-    arrowprops=dict(facecolor="#2ca02c", shrink=0.08, width=1, headwidth=6),
-    fontsize=9, weight="semibold", color="#2ca02c"
-)
-ax.annotate(
-    "Jev Container Cold-Start & Queueing Spikes",
-    xy=(4, 7190), xytext=(2.2, 6500),
-    arrowprops=dict(facecolor="#1f77b4", shrink=0.08, width=1, headwidth=6),
-    fontsize=9, weight="semibold", color="#1f77b4"
-)
+ax.annotate("Laya Local CPU: ~625ms (Deterministic)", xy=(3, 625), xytext=(2.2, 1800),
+            arrowprops=dict(facecolor="#ff7f0e", shrink=0.08, width=1, headwidth=5),
+            fontsize=9, weight="bold", color="#ff7f0e")
 
 plt.tight_layout()
-p2_path = os.path.join(FIG_DIR, "multi_scale_latency.png")
-plt.savefig(p2_path)
+p2 = os.path.join(FIG_DIR, "multi_scale_latency.png")
+plt.savefig(p2)
 plt.close()
-print(f"[+] Saved: {p2_path}")
 
 # -------------------------------------------------------------
-# PLOT 3: Cumulative Tokenomics & Cost Trajectory
+# PLOT 3: 3-Way Cumulative Cost Trajectory
 # -------------------------------------------------------------
-fig, ax = plt.subplots(figsize=(7, 4.5))
-ax.plot(scale_labels, [c / 1000 for c in jev_cost], marker="o", linewidth=2.5, color="#1f77b4", label="Native Jev (System-One: $0.042/1M in, $0 out)")
-ax.plot(scale_labels, [c / 1000 for c in gem_cost], marker="s", linewidth=2.5, color="#2ca02c", label="Gemini 2.5 Flash ($0.075/1M in + $0.30/1M out)")
+fig, ax = plt.subplots(figsize=(8, 4.5))
+ax.plot(scale_labels, [c * 1000 for c in gem_cost], marker="s", linewidth=2.5, color="#2ca02c", label="Gemini 2.5 Flash (Paid Cloud API)")
+ax.plot(scale_labels, [c * 1000 for c in jev_cost], marker="o", linewidth=2.5, color="#1f77b4", label="Native Jev (System-One API)")
+ax.plot(scale_labels, [0.0 for _ in scales], marker="d", linewidth=2.5, color="#ff7f0e", linestyle="--", label="Laya (Open-Weight Self-Hosted: $0.00)")
 
 ax.set_xlabel("Workload Scale (Emails)")
-ax.set_ylabel("Cumulative Inference Cost ($ USD)")
-ax.set_title("Cumulative Tokenomics Cost Trajectory (2.43x Savings)", weight="bold")
+ax.set_ylabel("Cumulative Inference Cost ($ USD / 1,000)")
+ax.set_title("Cumulative Tokenomic TCO Comparison: Open-Weight vs. Cloud", weight="bold")
 ax.legend(loc="upper left", frameon=True)
 
-diff_50 = (gem_cost[-1] - jev_cost[-1]) / 1000
-ax.text(
-    4, (jev_cost[-1] / 1000) + 0.0001,
-    f"Jev Total: ${jev_cost[-1]/1000:.5f}\n(58.8% Cheaper)",
-    ha="right", va="bottom", fontsize=9.5, weight="bold", color="#1f77b4"
-)
-ax.text(
-    4, (gem_cost[-1] / 1000) + 0.0001,
-    f"Gemini Total: ${gem_cost[-1]/1000:.5f}",
-    ha="right", va="bottom", fontsize=9.5, weight="bold", color="#2ca02c"
-)
+ax.text(4, gem_cost[-1] * 1000, f"Gemini: ${gem_cost[-1]:.5f}", ha="right", va="bottom", weight="bold", color="#2ca02c")
+ax.text(4, jev_cost[-1] * 1000, f"Jev: ${jev_cost[-1]:.5f}", ha="right", va="bottom", weight="bold", color="#1f77b4")
+ax.text(4, 0.05, f"Laya: $0.00000 (Free)", ha="right", va="bottom", weight="bold", color="#d95f02")
 
 plt.tight_layout()
-p3_path = os.path.join(FIG_DIR, "multi_scale_cumulative_cost.png")
-plt.savefig(p3_path)
+p3 = os.path.join(FIG_DIR, "multi_scale_cumulative_cost.png")
+plt.savefig(p3)
 plt.close()
-print(f"[+] Saved: {p3_path}")
 
 # -------------------------------------------------------------
-# PLOT 4: Expected Calibration Error (ECE) Trajectory
+# PLOT 4: Expected Calibration Error: Jev vs. Laya
 # -------------------------------------------------------------
-fig, ax = plt.subplots(figsize=(7, 4.2))
-bars = ax.bar(scale_labels, jev_ece, color="#ff7f0e", width=0.45, alpha=0.85, edgecolor="#d95f02", linewidth=1.2)
+fig, ax = plt.subplots(figsize=(7.5, 4.5))
+b_w = 0.35
+ax.bar(x - b_w/2, jev_ece, width=b_w, label="Native Jev (Sharp Calibration)", color="#1f77b4", alpha=0.9)
+ax.bar(x + b_w/2, laya_ece, width=b_w, label="Laya (High Entropy / Uncalibrated)", color="#ff7f0e", alpha=0.9)
+
+ax.set_xticks(x)
+ax.set_xticklabels(scale_labels)
 ax.set_xlabel("Workload Scale")
 ax.set_ylabel("Expected Calibration Error (ECE)")
-ax.set_title("Native Jev Probabilistic Calibration: ECE Convergence", weight="bold")
-ax.set_ylim(0, 0.045)
-
-for bar, ece in zip(bars, jev_ece):
-    yval = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width()/2.0, yval + 0.0015, f"{ece:.3f}", ha="center", va="bottom", fontsize=9.5, weight="bold")
-
-ax.axhline(0.015, color="gray", linestyle="--", linewidth=1, alpha=0.7, label="Asymptotic ECE Target (0.015)")
+ax.set_title("Probabilistic Uncertainty Calibration: Jev vs. Laya", weight="bold")
 ax.legend(loc="upper right", frameon=True)
 
-plt.tight_layout()
-p4_path = os.path.join(FIG_DIR, "ece_calibration_trajectory.png")
-plt.savefig(p4_path)
-plt.close()
-print(f"[+] Saved: {p4_path}")
-
-# -------------------------------------------------------------
-# PLOT 5: Per-Department Confidence & Latency Distribution
-# -------------------------------------------------------------
-dept_confs = {}
-dept_lats = {}
-for r in granular:
-    d = r["ground_truth"]
-    dept_confs.setdefault(d, []).append(r["jev"]["confidence"] * 100)
-    dept_lats.setdefault(d, []).append(r["jev"]["latency_ms"])
-
-departments = sorted(list(dept_confs.keys()))
-mean_confs = [np.mean(dept_confs[d]) for d in departments]
-mean_lats = [np.mean(dept_lats[d]) for d in departments]
-
-fig, ax1 = plt.subplots(figsize=(8, 4.5))
-ax2 = ax1.twinx()
-
-x_dept = np.arange(len(departments))
-w = 0.35
-
-b1 = ax1.bar(x_dept - w/2, mean_confs, width=w, color="#1f77b4", label="Mean Confidence (%)", alpha=0.9)
-b2 = ax2.bar(x_dept + w/2, mean_lats, width=w, color="#aec7e8", edgecolor="#1f77b4", label="Mean Latency (ms)", alpha=0.85)
-
-ax1.set_ylim(80, 105)
-ax1.set_ylabel("Confidence Score (%)", color="#1f77b4", weight="bold")
-ax2.set_ylabel("Latency (ms)", color="#3182bd", weight="bold")
-ax1.set_xticks(x_dept)
-ax1.set_xticklabels(departments, rotation=15, ha="right")
-ax1.set_title("Native Jev: Confidence Calibration & Latency Across 5 Operational Departments", weight="bold")
-
-for bar in b1:
-    h = bar.get_height()
-    ax1.text(bar.get_x() + bar.get_width()/2.0, h + 0.6, f"{h:.1f}%", ha="center", va="bottom", fontsize=8.5, weight="bold")
+for i in range(len(scales)):
+    ax.text(x[i] - b_w/2, jev_ece[i] + 0.015, f"{jev_ece[i]:.3f}", ha="center", fontsize=8.5, weight="bold", color="#1f77b4")
+    ax.text(x[i] + b_w/2, laya_ece[i] + 0.015, f"{laya_ece[i]:.3f}", ha="center", fontsize=8.5, weight="bold", color="#d95f02")
 
 plt.tight_layout()
-p5_path = os.path.join(FIG_DIR, "department_confidence_distribution.png")
-plt.savefig(p5_path)
+p4 = os.path.join(FIG_DIR, "ece_calibration_trajectory.png")
+plt.savefig(p4)
 plt.close()
-print(f"[+] Saved: {p5_path}")
 
 # -------------------------------------------------------------
-# PLOT 6: Master Publication-Ready 2x2 Overview Figure
+# PLOT 6: Master 4-Panel Triad Overview Figure
 # -------------------------------------------------------------
-fig, ((ax_a, ax_b), (ax_c, ax_d)) = plt.subplots(2, 2, figsize=(13, 9))
+fig, ((ax_a, ax_b), (ax_c, ax_d)) = plt.subplots(2, 2, figsize=(14, 9.5))
 
 # (A) Accuracy
-ax_a.bar(x - bar_width/2, jev_acc, width=bar_width, label="Native Jev", color="#1f77b4")
-ax_a.bar(x + bar_width/2, gem_acc, width=bar_width, label="Gemini 2.5 Flash", color="#2ca02c")
-ax_a.plot(x, agreement, color="#d62728", marker="o", linestyle="--", label="Consensus Rate")
-ax_a.set_ylim(92, 104)
+ax_a.bar(x - bar_w, jev_acc, width=bar_w, label="Native Jev", color="#1f77b4")
+ax_a.bar(x, laya_acc, width=bar_w, label="Laya (Local)", color="#ff7f0e")
+ax_a.bar(x + bar_w, gem_acc, width=bar_w, label="Gemini 2.5", color="#2ca02c")
+ax_a.set_ylim(85, 105)
 ax_a.set_xticks(x)
 ax_a.set_xticklabels(scale_labels)
-ax_a.set_title("(A) Multi-Scale Accuracy & Model Agreement", weight="bold")
+ax_a.set_title("(A) Multi-Scale Accuracy Across 5 Departments", weight="bold")
 ax_a.set_ylabel("Accuracy (%)")
 ax_a.legend(loc="lower right")
 
-# (B) Latency Trajectory
-ax_b.plot(scale_labels, jev_p50_lat, marker="s", linewidth=2, color="#1f77b4", label="Jev P50 Latency")
-ax_b.plot(scale_labels, gem_p50_lat, marker="o", linewidth=2, color="#2ca02c", label="Gemini P50 Latency")
-ax_b.plot(scale_labels, jev_mean_lat, marker="^", linestyle=":", color="#17becf", label="Jev Mean Latency")
-ax_b.set_title("(B) Median (P50) & Mean Inference Latency", weight="bold")
+# (B) Latency
+ax_b.plot(scale_labels, jev_p50, marker="s", color="#1f77b4", label="Jev P50")
+ax_b.plot(scale_labels, laya_p50, marker="^", color="#ff7f0e", label="Laya P50 (Local CPU)")
+ax_b.plot(scale_labels, gem_p50, marker="o", color="#2ca02c", label="Gemini P50 (Cloud API)")
+ax_b.set_title("(B) Median (P50) Inference Latency", weight="bold")
 ax_b.set_ylabel("Latency (ms)")
-ax_b.legend(loc="upper left")
+ax_b.legend(loc="center right")
 
-# (C) ECE Calibration
-ax_c.plot(scale_labels, jev_ece, marker="d", linewidth=2.5, color="#ff7f0e", label="Jev ECE")
-ax_c.fill_between(scale_labels, 0, jev_ece, color="#ff7f0e", alpha=0.2)
-ax_c.set_ylim(0, 0.045)
-ax_c.set_title("(C) Expected Calibration Error (ECE) Convergence", weight="bold")
+# (C) Calibration
+ax_c.plot(scale_labels, jev_ece, marker="o", color="#1f77b4", label="Jev ECE (Calibrated)")
+ax_c.plot(scale_labels, laya_ece, marker="d", color="#ff7f0e", label="Laya ECE (Uncalibrated)")
+ax_c.set_title("(C) Expected Calibration Error (ECE) Comparison", weight="bold")
 ax_c.set_ylabel("ECE Score")
-for s, val in zip(scale_labels, jev_ece):
-    ax_c.annotate(f"{val:.3f}", (s, val), textcoords="offset points", xytext=(0,7), ha="center", weight="bold", fontsize=9)
+ax_c.legend(loc="center right")
 
-# (D) Cost Trajectory
-ax_d.plot(scale_labels, [c / 1000 for c in jev_cost], marker="o", linewidth=2.5, color="#1f77b4", label="Native Jev Total")
-ax_d.plot(scale_labels, [c / 1000 for c in gem_cost], marker="s", linewidth=2.5, color="#2ca02c", label="Gemini 2.5 Total")
-ax_d.set_title("(D) Cumulative Inference Cost ($ USD)", weight="bold")
-ax_d.set_ylabel("Cost ($ USD)")
+# (D) Cost
+ax_d.plot(scale_labels, [c * 1000 for c in gem_cost], marker="s", color="#2ca02c", label="Gemini 2.5 Flash")
+ax_d.plot(scale_labels, [c * 1000 for c in jev_cost], marker="o", color="#1f77b4", label="Native Jev API")
+ax_d.plot(scale_labels, [0.0 for _ in scales], marker="d", color="#ff7f0e", linestyle="--", label="Laya (Open Weights)")
+ax_d.set_title("(D) Cumulative Cost ($ USD / 1,000 Decisions)", weight="bold")
+ax_d.set_ylabel("Cost ($ USD / 1,000)")
 ax_d.legend(loc="upper left")
 
-plt.suptitle("Empirical Multi-Scale Evaluation: Native Jev System-One vs. Gemini 2.5 Flash (N=10 -> 50)", weight="bold", y=0.995)
+plt.suptitle("Triad Decision Benchmark: Native Jev vs. Laya vs. Gemini 2.5 Flash (N=10 -> 50)", weight="bold", y=0.995)
 plt.tight_layout()
-p6_path = os.path.join(FIG_DIR, "publication_summary_figure.png")
-plt.savefig(p6_path)
+p6 = os.path.join(FIG_DIR, "publication_summary_figure.png")
+plt.savefig(p6)
 plt.close()
-print(f"[+] Saved: {p6_path}")
+print("[+] Successfully regenerated all 3-way figures!")

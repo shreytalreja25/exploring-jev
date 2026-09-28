@@ -1,0 +1,1013 @@
+{
+  "metadata": {
+    "title": "Three-Way System-One Benchmark: Native Jev vs. Laya vs. Gemini 2.5 Flash",
+    "timestamp": "2026-09-28T13:57:30Z",
+    "total_emails": 50,
+    "total_wall_clock_sec": 36.76,
+    "hardware": "Local CPU (AMD/Intel AVX) + RTX 5060 Laptop GPU Ready"
+  },
+  "laya_scale_metrics": {
+    "N=10": {
+      "scale": 10,
+      "accuracy": 100.0,
+      "mean_latency_ms": 1206.32,
+      "p50_latency_ms": 698.5,
+      "p90_latency_ms": 1261.17,
+      "mean_confidence": 0.2944,
+      "ece": 0.7056,
+      "cost_usd": 0.0
+    },
+    "N=20": {
+      "scale": 20,
+      "accuracy": 100.0,
+      "mean_latency_ms": 914.37,
+      "p50_latency_ms": 635.47,
+      "p90_latency_ms": 720.19,
+      "mean_confidence": 0.2186,
+      "ece": 0.7814,
+      "cost_usd": 0.0
+    },
+    "N=30": {
+      "scale": 30,
+      "accuracy": 96.67,
+      "mean_latency_ms": 813.41,
+      "p50_latency_ms": 624.71,
+      "p90_latency_ms": 716.15,
+      "mean_confidence": 0.2027,
+      "ece": 0.764,
+      "cost_usd": 0.0
+    },
+    "N=40": {
+      "scale": 40,
+      "accuracy": 95.0,
+      "mean_latency_ms": 763.66,
+      "p50_latency_ms": 624.71,
+      "p90_latency_ms": 709.76,
+      "mean_confidence": 0.1875,
+      "ece": 0.7625,
+      "cost_usd": 0.0
+    },
+    "N=50": {
+      "scale": 50,
+      "accuracy": 92.0,
+      "mean_latency_ms": 734.59,
+      "p50_latency_ms": 624.71,
+      "p90_latency_ms": 690.03,
+      "mean_confidence": 0.1754,
+      "ece": 0.7446,
+      "cost_usd": 0.0
+    }
+  },
+  "laya_granular_results": [
+    {
+      "id": "EML-001",
+      "subject": "Q4 Product Launch Ad Creatives & Omnichannel Campaign Assets",
+      "ground_truth": "Marketing",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.1408,
+        "probabilities": {
+          "Marketing": 0.482,
+          "Sales": 0.1255,
+          "Finance": 0.1229,
+          "Human Resources": 0.0752,
+          "Technical Support": 0.1943
+        },
+        "latency_ms": 6084.21,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-002",
+      "subject": "Inquiry: Enterprise License Tier & Volume Pricing for 500 Seats",
+      "ground_truth": "Sales",
+      "laya": {
+        "choice": "Sales",
+        "confidence": 0.1518,
+        "probabilities": {
+          "Marketing": 0.1736,
+          "Sales": 0.4997,
+          "Finance": 0.1335,
+          "Human Resources": 0.073,
+          "Technical Support": 0.1201
+        },
+        "latency_ms": 552.22,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-003",
+      "subject": "Overdue Notice: Invoice #INV-2026-9941 - Wire Remittance Required",
+      "ground_truth": "Finance",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.7639,
+        "probabilities": {
+          "Marketing": 0.0133,
+          "Sales": 0.0178,
+          "Finance": 0.9211,
+          "Human Resources": 0.0151,
+          "Technical Support": 0.0328
+        },
+        "latency_ms": 597.84,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-004",
+      "subject": "Internal Transfer Request: Senior Engineer Transfer to Core Platform Team",
+      "ground_truth": "Human Resources",
+      "laya": {
+        "choice": "Human Resources",
+        "confidence": 0.4064,
+        "probabilities": {
+          "Marketing": 0.0602,
+          "Sales": 0.0457,
+          "Finance": 0.0588,
+          "Human Resources": 0.7238,
+          "Technical Support": 0.1114
+        },
+        "latency_ms": 621.8,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-005",
+      "subject": "CRITICAL INCIDENT: 504 Gateway Timeout Errors on API Gateway /v1/chat",
+      "ground_truth": "Technical Support",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.2824,
+        "probabilities": {
+          "Marketing": 0.1385,
+          "Sales": 0.0941,
+          "Finance": 0.0818,
+          "Human Resources": 0.0565,
+          "Technical Support": 0.6291
+        },
+        "latency_ms": 649.46,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-006",
+      "subject": "Invitation: Keynote Sponsorship & Brand Expo Booth at AI World 2026",
+      "ground_truth": "Marketing",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.1021,
+        "probabilities": {
+          "Marketing": 0.434,
+          "Sales": 0.2061,
+          "Finance": 0.1375,
+          "Human Resources": 0.0902,
+          "Technical Support": 0.1322
+        },
+        "latency_ms": 687.91,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-007",
+      "subject": "RFP Response & Master Services Agreement (MSA) Redlines for Renewal",
+      "ground_truth": "Sales",
+      "laya": {
+        "choice": "Sales",
+        "confidence": 0.0774,
+        "probabilities": {
+          "Marketing": 0.1967,
+          "Sales": 0.4004,
+          "Finance": 0.1543,
+          "Human Resources": 0.0926,
+          "Technical Support": 0.1559
+        },
+        "latency_ms": 719.62,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-008",
+      "subject": "Expense Report Rejection: Missing Itemized VAT Receipts for London Trip #EX-4412",
+      "ground_truth": "Finance",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.1489,
+        "probabilities": {
+          "Marketing": 0.1151,
+          "Sales": 0.1282,
+          "Finance": 0.5009,
+          "Human Resources": 0.085,
+          "Technical Support": 0.1709
+        },
+        "latency_ms": 709.09,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-009",
+      "subject": "Annual Open Enrollment 2026: Health Benefits, Dental & 401(k) Matching",
+      "ground_truth": "Human Resources",
+      "laya": {
+        "choice": "Human Resources",
+        "confidence": 0.6015,
+        "probabilities": {
+          "Marketing": 0.0433,
+          "Sales": 0.0272,
+          "Finance": 0.0519,
+          "Human Resources": 0.845,
+          "Technical Support": 0.0326
+        },
+        "latency_ms": 715.76,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-010",
+      "subject": "Bug Report: Python SDK v1.2.3 HMAC Webhook Verification Fails on Windows",
+      "ground_truth": "Technical Support",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.2684,
+        "probabilities": {
+          "Marketing": 0.1016,
+          "Sales": 0.1474,
+          "Finance": 0.0694,
+          "Human Resources": 0.066,
+          "Technical Support": 0.6157
+        },
+        "latency_ms": 725.28,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-011",
+      "subject": "Featured Placement: Inbound SEO & Guest Editorial Collaboration",
+      "ground_truth": "Marketing",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.122,
+        "probabilities": {
+          "Marketing": 0.4558,
+          "Sales": 0.1947,
+          "Finance": 0.1092,
+          "Human Resources": 0.0785,
+          "Technical Support": 0.1618
+        },
+        "latency_ms": 621.67,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-012",
+      "subject": "Demo Request: Point-of-Sale Real-Time Decision Gateway",
+      "ground_truth": "Sales",
+      "laya": {
+        "choice": "Sales",
+        "confidence": 0.0804,
+        "probabilities": {
+          "Marketing": 0.2023,
+          "Sales": 0.3679,
+          "Finance": 0.1213,
+          "Human Resources": 0.0742,
+          "Technical Support": 0.2344
+        },
+        "latency_ms": 627.62,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-013",
+      "subject": "FY2026 Form 1099-MISC & Foreign Entity Withholding Audit",
+      "ground_truth": "Finance",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.1541,
+        "probabilities": {
+          "Marketing": 0.0811,
+          "Sales": 0.1012,
+          "Finance": 0.502,
+          "Human Resources": 0.1362,
+          "Technical Support": 0.1796
+        },
+        "latency_ms": 613.63,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-014",
+      "subject": "Q4 Engineering Headcount Approvals & Visa Sponsorship Guidelines",
+      "ground_truth": "Human Resources",
+      "laya": {
+        "choice": "Human Resources",
+        "confidence": 0.0903,
+        "probabilities": {
+          "Marketing": 0.1281,
+          "Sales": 0.1688,
+          "Finance": 0.1186,
+          "Human Resources": 0.4336,
+          "Technical Support": 0.1509
+        },
+        "latency_ms": 581.79,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-015",
+      "subject": "[P1 Incident] Redis Cluster Node Failover & High Memory Eviction Rates",
+      "ground_truth": "Technical Support",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.1592,
+        "probabilities": {
+          "Marketing": 0.1276,
+          "Sales": 0.1379,
+          "Finance": 0.1164,
+          "Human Resources": 0.0976,
+          "Technical Support": 0.5206
+        },
+        "latency_ms": 646.72,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-016",
+      "subject": "YouTube Influencer Sponsorship Contract & Tracking Pixels",
+      "ground_truth": "Marketing",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.2148,
+        "probabilities": {
+          "Marketing": 0.5679,
+          "Sales": 0.1418,
+          "Finance": 0.1042,
+          "Human Resources": 0.0598,
+          "Technical Support": 0.1264
+        },
+        "latency_ms": 592.54,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-017",
+      "subject": "Enterprise Procurement: Vendor Security Questionnaire & RFQ",
+      "ground_truth": "Sales",
+      "laya": {
+        "choice": "Sales",
+        "confidence": 0.0688,
+        "probabilities": {
+          "Marketing": 0.171,
+          "Sales": 0.3884,
+          "Finance": 0.1384,
+          "Human Resources": 0.1032,
+          "Technical Support": 0.1989
+        },
+        "latency_ms": 612.03,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-018",
+      "subject": "Stripe Payout Failure: Bank Account Verification Required (ACH #TR-881)",
+      "ground_truth": "Finance",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.138,
+        "probabilities": {
+          "Marketing": 0.1457,
+          "Sales": 0.088,
+          "Finance": 0.4306,
+          "Human Resources": 0.064,
+          "Technical Support": 0.2717
+        },
+        "latency_ms": 670.75,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-019",
+      "subject": "Employee Assistance Program (EAP) & Mental Health Stipends",
+      "ground_truth": "Human Resources",
+      "laya": {
+        "choice": "Human Resources",
+        "confidence": 0.3198,
+        "probabilities": {
+          "Marketing": 0.1389,
+          "Sales": 0.0579,
+          "Finance": 0.0759,
+          "Human Resources": 0.6582,
+          "Technical Support": 0.0691
+        },
+        "latency_ms": 614.17,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-020",
+      "subject": "Dependabot Alert: High Severity RCE in package 'aiohttp' < 3.10.11",
+      "ground_truth": "Technical Support",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.0817,
+        "probabilities": {
+          "Marketing": 0.1778,
+          "Sales": 0.1635,
+          "Finance": 0.162,
+          "Human Resources": 0.0882,
+          "Technical Support": 0.4085
+        },
+        "latency_ms": 643.32,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-021",
+      "subject": "Media Query: Interview Request with CEO regarding Series B Announcement",
+      "ground_truth": "Marketing",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.1174,
+        "probabilities": {
+          "Marketing": 0.4658,
+          "Sales": 0.1574,
+          "Finance": 0.1268,
+          "Human Resources": 0.0934,
+          "Technical Support": 0.1566
+        },
+        "latency_ms": 646.96,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-022",
+      "subject": "Pilot License Agreement: GDPR-Compliant Hospital Decision Engine",
+      "ground_truth": "Sales",
+      "laya": {
+        "choice": "Sales",
+        "confidence": 0.1087,
+        "probabilities": {
+          "Marketing": 0.1574,
+          "Sales": 0.4436,
+          "Finance": 0.1549,
+          "Human Resources": 0.074,
+          "Technical Support": 0.1701
+        },
+        "latency_ms": 646.02,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-023",
+      "subject": "Monthly Payroll Tax Remittance Summary & State Unemployment Withholdings",
+      "ground_truth": "Finance",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.1372,
+        "probabilities": {
+          "Marketing": 0.1468,
+          "Sales": 0.0871,
+          "Finance": 0.4914,
+          "Human Resources": 0.138,
+          "Technical Support": 0.1367
+        },
+        "latency_ms": 605.62,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-024",
+      "subject": "New York Office Return-to-Work Guidelines & Desk Booking System",
+      "ground_truth": "Human Resources",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.0722,
+        "probabilities": {
+          "Marketing": 0.3199,
+          "Sales": 0.0963,
+          "Finance": 0.1155,
+          "Human Resources": 0.3114,
+          "Technical Support": 0.1568
+        },
+        "latency_ms": 590.8,
+        "is_correct": false,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-025",
+      "subject": "[CRITICAL] PostgreSQL Replication Lag Exceeds 10GB on Read Replica 2",
+      "ground_truth": "Technical Support",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.1534,
+        "probabilities": {
+          "Marketing": 0.1126,
+          "Sales": 0.0932,
+          "Finance": 0.2115,
+          "Human Resources": 0.0908,
+          "Technical Support": 0.4919
+        },
+        "latency_ms": 634.52,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-026",
+      "subject": "Final Brand Identity Guidelines & SVG Icon System Delivery",
+      "ground_truth": "Marketing",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.1263,
+        "probabilities": {
+          "Marketing": 0.4631,
+          "Sales": 0.1265,
+          "Finance": 0.1183,
+          "Human Resources": 0.085,
+          "Technical Support": 0.2071
+        },
+        "latency_ms": 563.37,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-027",
+      "subject": "Quote Request: Multi-Cloud Automated Routing for 10,000 Connected Vehicles",
+      "ground_truth": "Sales",
+      "laya": {
+        "choice": "Sales",
+        "confidence": 0.2303,
+        "probabilities": {
+          "Marketing": 0.1065,
+          "Sales": 0.5829,
+          "Finance": 0.1045,
+          "Human Resources": 0.0598,
+          "Technical Support": 0.1463
+        },
+        "latency_ms": 606.27,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-028",
+      "subject": "Monthly Corporate American Express Statement Balance: $78,419.03",
+      "ground_truth": "Finance",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.2459,
+        "probabilities": {
+          "Marketing": 0.1106,
+          "Sales": 0.0715,
+          "Finance": 0.6037,
+          "Human Resources": 0.1207,
+          "Technical Support": 0.0935
+        },
+        "latency_ms": 563.24,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-029",
+      "subject": "Confidential Grievance Submission: Workplace Harassment Inquiry",
+      "ground_truth": "Human Resources",
+      "laya": {
+        "choice": "Human Resources",
+        "confidence": 0.2505,
+        "probabilities": {
+          "Marketing": 0.0906,
+          "Sales": 0.0584,
+          "Finance": 0.0692,
+          "Human Resources": 0.5808,
+          "Technical Support": 0.201
+        },
+        "latency_ms": 615.5,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-030",
+      "subject": "Issue: WebSocket Connection Drops after 60s Idle Timeout on EU Node",
+      "ground_truth": "Technical Support",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.2667,
+        "probabilities": {
+          "Marketing": 0.3006,
+          "Sales": 0.0773,
+          "Finance": 0.0545,
+          "Human Resources": 0.0387,
+          "Technical Support": 0.529
+        },
+        "latency_ms": 642.69,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-031",
+      "subject": "Google Ads Performance Audit: 35% ROAS Improvement in Enterprise Campaigns",
+      "ground_truth": "Marketing",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.3366,
+        "probabilities": {
+          "Marketing": 0.6619,
+          "Sales": 0.0885,
+          "Finance": 0.054,
+          "Human Resources": 0.0431,
+          "Technical Support": 0.1524
+        },
+        "latency_ms": 634.59,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-032",
+      "subject": "FedRAMP Moderate Compliance Confirmation & Sole-Source RFP",
+      "ground_truth": "Sales",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.0428,
+        "probabilities": {
+          "Marketing": 0.2536,
+          "Sales": 0.2573,
+          "Finance": 0.1285,
+          "Human Resources": 0.099,
+          "Technical Support": 0.2618
+        },
+        "latency_ms": 633.43,
+        "is_correct": false,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-033",
+      "subject": "Commercial Money Market Yield & Overnight Sweep Confirmation",
+      "ground_truth": "Finance",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.2026,
+        "probabilities": {
+          "Marketing": 0.1419,
+          "Sales": 0.1394,
+          "Finance": 0.5543,
+          "Human Resources": 0.0597,
+          "Technical Support": 0.1048
+        },
+        "latency_ms": 636.97,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-034",
+      "subject": "Reminder: 360-Degree Peer Feedback Deadline Tomorrow 5 PM",
+      "ground_truth": "Human Resources",
+      "laya": {
+        "choice": "Human Resources",
+        "confidence": 0.0505,
+        "probabilities": {
+          "Marketing": 0.1966,
+          "Sales": 0.1005,
+          "Finance": 0.141,
+          "Human Resources": 0.339,
+          "Technical Support": 0.2228
+        },
+        "latency_ms": 577.41,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-035",
+      "subject": "URGENT: TLS/SSL Certificate for *.company.com Expires in 48 Hours",
+      "ground_truth": "Technical Support",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.1211,
+        "probabilities": {
+          "Marketing": 0.1987,
+          "Sales": 0.1451,
+          "Finance": 0.1278,
+          "Human Resources": 0.0736,
+          "Technical Support": 0.4548
+        },
+        "latency_ms": 629.9,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-036",
+      "subject": "Podcast Guest Invitation: Deep Dive on Decision AI vs Generative LLMs",
+      "ground_truth": "Marketing",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.0695,
+        "probabilities": {
+          "Marketing": 0.3728,
+          "Sales": 0.2307,
+          "Finance": 0.1577,
+          "Human Resources": 0.0897,
+          "Technical Support": 0.1491
+        },
+        "latency_ms": 605.29,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-037",
+      "subject": "Warm Inbound Introduction: Fortune 100 Insurance Carrier Looking for Fast Routing",
+      "ground_truth": "Sales",
+      "laya": {
+        "choice": "Sales",
+        "confidence": 0.2251,
+        "probabilities": {
+          "Marketing": 0.1647,
+          "Sales": 0.5685,
+          "Finance": 0.087,
+          "Human Resources": 0.0519,
+          "Technical Support": 0.1279
+        },
+        "latency_ms": 610.16,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-038",
+      "subject": "Interim Revenue Recognition Audit: ASC 606 Multi-Year Subscription Amortization",
+      "ground_truth": "Finance",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.0511,
+        "probabilities": {
+          "Marketing": 0.216,
+          "Sales": 0.161,
+          "Finance": 0.3232,
+          "Human Resources": 0.082,
+          "Technical Support": 0.2178
+        },
+        "latency_ms": 586.18,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-039",
+      "subject": "Parental Leave Approval & FMLA Benefit Schedule: Oct 2026 - Jan 2027",
+      "ground_truth": "Human Resources",
+      "laya": {
+        "choice": "Human Resources",
+        "confidence": 0.1811,
+        "probabilities": {
+          "Marketing": 0.1001,
+          "Sales": 0.0901,
+          "Finance": 0.1303,
+          "Human Resources": 0.5417,
+          "Technical Support": 0.1378
+        },
+        "latency_ms": 585.86,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-040",
+      "subject": "Build Failure in Pipeline #9021: Docker Image Vulnerability Scan Blocked Merge",
+      "ground_truth": "Technical Support",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.1392,
+        "probabilities": {
+          "Marketing": 0.1809,
+          "Sales": 0.125,
+          "Finance": 0.1309,
+          "Human Resources": 0.0781,
+          "Technical Support": 0.4851
+        },
+        "latency_ms": 644.0,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-041",
+      "subject": "Keyword Alert: Company Moved to #1 Position on Google for 'System One Decision AI'",
+      "ground_truth": "Marketing",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.1541,
+        "probabilities": {
+          "Marketing": 0.4282,
+          "Sales": 0.2917,
+          "Finance": 0.0783,
+          "Human Resources": 0.0534,
+          "Technical Support": 0.1484
+        },
+        "latency_ms": 640.52,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-042",
+      "subject": "Contract Renewal & Multi-Region Expansion: 20 Million Monthly Decisions",
+      "ground_truth": "Sales",
+      "laya": {
+        "choice": "Sales",
+        "confidence": 0.2136,
+        "probabilities": {
+          "Marketing": 0.1054,
+          "Sales": 0.5488,
+          "Finance": 0.1834,
+          "Human Resources": 0.0421,
+          "Technical Support": 0.1202
+        },
+        "latency_ms": 633.68,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-043",
+      "subject": "Q3 CapEx Asset Depreciation Schedule: GPU Cluster & Server Hardware",
+      "ground_truth": "Finance",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.1192,
+        "probabilities": {
+          "Marketing": 0.1126,
+          "Sales": 0.1408,
+          "Finance": 0.4701,
+          "Human Resources": 0.1086,
+          "Technical Support": 0.168
+        },
+        "latency_ms": 640.28,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-044",
+      "subject": "USCIS Form I-797 Approval Notice for O-1A Alien of Extraordinary Ability",
+      "ground_truth": "Human Resources",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.0386,
+        "probabilities": {
+          "Marketing": 0.1737,
+          "Sales": 0.0953,
+          "Finance": 0.1812,
+          "Human Resources": 0.2652,
+          "Technical Support": 0.2845
+        },
+        "latency_ms": 637.52,
+        "is_correct": false,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-045",
+      "subject": "DDoS Mitigation Notice: 45 Million Packet/Sec SYN Flood Mitigated on Edge",
+      "ground_truth": "Technical Support",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.1303,
+        "probabilities": {
+          "Marketing": 0.2509,
+          "Sales": 0.1601,
+          "Finance": 0.0997,
+          "Human Resources": 0.0589,
+          "Technical Support": 0.4304
+        },
+        "latency_ms": 637.53,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-046",
+      "subject": "Product Hunt #1 Product of the Day Badge & Featured Newsletter Inclusion",
+      "ground_truth": "Marketing",
+      "laya": {
+        "choice": "Marketing",
+        "confidence": 0.1409,
+        "probabilities": {
+          "Marketing": 0.4591,
+          "Sales": 0.1629,
+          "Finance": 0.0879,
+          "Human Resources": 0.0672,
+          "Technical Support": 0.223
+        },
+        "latency_ms": 593.47,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-047",
+      "subject": "Competitive Evaluation: Final Selection between Jev vs In-House Bert Classifier",
+      "ground_truth": "Sales",
+      "laya": {
+        "choice": "Sales",
+        "confidence": 0.1471,
+        "probabilities": {
+          "Marketing": 0.1369,
+          "Sales": 0.4964,
+          "Finance": 0.1245,
+          "Human Resources": 0.075,
+          "Technical Support": 0.1672
+        },
+        "latency_ms": 595.84,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-048",
+      "subject": "Notice of Acceptance: Federal Corporate Tax Return Form 1120 Accepted",
+      "ground_truth": "Finance",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.1689,
+        "probabilities": {
+          "Marketing": 0.091,
+          "Sales": 0.1214,
+          "Finance": 0.5279,
+          "Human Resources": 0.1072,
+          "Technical Support": 0.1525
+        },
+        "latency_ms": 582.85,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-049",
+      "subject": "Annual Executive Equity Refresh & Employee Stock Purchase Plan (ESPP) Allocation",
+      "ground_truth": "Human Resources",
+      "laya": {
+        "choice": "Finance",
+        "confidence": 0.0221,
+        "probabilities": {
+          "Marketing": 0.2079,
+          "Sales": 0.1101,
+          "Finance": 0.2603,
+          "Human Resources": 0.1882,
+          "Technical Support": 0.2334
+        },
+        "latency_ms": 604.14,
+        "is_correct": false,
+        "cost_usd": 0.0
+      }
+    },
+    {
+      "id": "EML-050",
+      "subject": "Kafka Consumer Lag Surge: Partition 14 Rebalance Stalled on Event Stream",
+      "ground_truth": "Technical Support",
+      "laya": {
+        "choice": "Technical Support",
+        "confidence": 0.133,
+        "probabilities": {
+          "Marketing": 0.1925,
+          "Sales": 0.1222,
+          "Finance": 0.1506,
+          "Human Resources": 0.0669,
+          "Technical Support": 0.4679
+        },
+        "latency_ms": 617.61,
+        "is_correct": true,
+        "cost_usd": 0.0
+      }
+    }
+  ]
+}

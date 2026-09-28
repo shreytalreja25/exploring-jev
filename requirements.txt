@@ -6,3 +6,6 @@ numpy>=2.0.0
 matplotlib>=3.11.0
 seaborn>=0.13.0
 reportlab>=5.0.0
+laya>=0.3.21
+torch>=2.1.0
+transformers>=4.40.0
