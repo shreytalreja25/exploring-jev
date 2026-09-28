@@ -1,3 +1,5 @@
 openrouter>=1.2.32
+typesafe-sdk>=0.7.2
 python-dotenv>=1.2.2
 tabulate>=0.10.0
+numpy>=2.0.0

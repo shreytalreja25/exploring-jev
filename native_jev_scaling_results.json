@@ -1,0 +1,1619 @@
+{
+  "benchmark_metadata": {
+    "title": "Native Jev System-One vs. Gemini 2.5 Flash Multi-Scale Benchmark",
+    "timestamp": "2026-09-28T13:33:45Z",
+    "total_emails": 50,
+    "total_wall_clock_sec": 420.79,
+    "scales_evaluated": [
+      10,
+      20,
+      30,
+      40,
+      50
+    ]
+  },
+  "scale_metrics_history": {
+    "N=10": {
+      "scale": 10,
+      "jev_accuracy": 100.0,
+      "gemini_accuracy": 100.0,
+      "agreement_rate": 100.0,
+      "jev_latency": {
+        "mean_ms": 4386.72,
+        "p50_ms": 2778.94,
+        "p90_ms": 10824.77
+      },
+      "gemini_latency": {
+        "mean_ms": 1089.52,
+        "p50_ms": 1041.13,
+        "p90_ms": 1229.42
+      },
+      "jev_mean_confidence": 0.966,
+      "jev_ece": 0.034,
+      "jev_cumulative_cost_usd": 0.000196,
+      "gemini_cumulative_cost_usd": 0.000502
+    },
+    "N=20": {
+      "scale": 20,
+      "jev_accuracy": 100.0,
+      "gemini_accuracy": 100.0,
+      "agreement_rate": 100.0,
+      "jev_latency": {
+        "mean_ms": 5377.83,
+        "p50_ms": 2778.94,
+        "p90_ms": 11408.4
+      },
+      "gemini_latency": {
+        "mean_ms": 993.65,
+        "p50_ms": 992.1,
+        "p90_ms": 1178.55
+      },
+      "jev_mean_confidence": 0.979,
+      "jev_ece": 0.021,
+      "jev_cumulative_cost_usd": 0.000385,
+      "gemini_cumulative_cost_usd": 0.000957
+    },
+    "N=30": {
+      "scale": 30,
+      "jev_accuracy": 100.0,
+      "gemini_accuracy": 100.0,
+      "agreement_rate": 100.0,
+      "jev_latency": {
+        "mean_ms": 5099.05,
+        "p50_ms": 2752.77,
+        "p90_ms": 10968.71
+      },
+      "gemini_latency": {
+        "mean_ms": 1017.16,
+        "p50_ms": 924.71,
+        "p90_ms": 1222.48
+      },
+      "jev_mean_confidence": 0.984,
+      "jev_ece": 0.016,
+      "jev_cumulative_cost_usd": 0.000573,
+      "gemini_cumulative_cost_usd": 0.00141
+    },
+    "N=40": {
+      "scale": 40,
+      "jev_accuracy": 100.0,
+      "gemini_accuracy": 100.0,
+      "agreement_rate": 100.0,
+      "jev_latency": {
+        "mean_ms": 7116.4,
+        "p50_ms": 4841.68,
+        "p90_ms": 16896.76
+      },
+      "gemini_latency": {
+        "mean_ms": 1020.02,
+        "p50_ms": 992.1,
+        "p90_ms": 1200.15
+      },
+      "jev_mean_confidence": 0.9865,
+      "jev_ece": 0.0135,
+      "jev_cumulative_cost_usd": 0.000761,
+      "gemini_cumulative_cost_usd": 0.001859
+    },
+    "N=50": {
+      "scale": 50,
+      "jev_accuracy": 100.0,
+      "gemini_accuracy": 100.0,
+      "agreement_rate": 100.0,
+      "jev_latency": {
+        "mean_ms": 7189.98,
+        "p50_ms": 4201.52,
+        "p90_ms": 16896.76
+      },
+      "gemini_latency": {
+        "mean_ms": 1025.0,
+        "p50_ms": 949.15,
+        "p90_ms": 1362.71
+      },
+      "jev_mean_confidence": 0.9852,
+      "jev_ece": 0.0148,
+      "jev_cumulative_cost_usd": 0.00095,
+      "gemini_cumulative_cost_usd": 0.002314
+    }
+  },
+  "granular_results": [
+    {
+      "id": "EML-001",
+      "subject": "Q4 Product Launch Ad Creatives & Omnichannel Campaign Assets",
+      "ground_truth": "Marketing",
+      "jev": {
+        "choice": "Marketing",
+        "confidence": 1.0,
+        "probabilities": {
+          "Sales": 0.0,
+          "Finance": 0.0,
+          "Marketing": 1.0,
+          "Technical Support": 0.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 690.02,
+        "input_tokens": 460,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.93e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Marketing",
+        "latency_ms": 1128.05,
+        "input_tokens": 148,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.69e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-002",
+      "subject": "Inquiry: Enterprise License Tier & Volume Pricing for 500 Seats",
+      "ground_truth": "Sales",
+      "jev": {
+        "choice": "Sales",
+        "confidence": 1.0,
+        "probabilities": {
+          "Finance": 0.0,
+          "Human Resources": 0.0,
+          "Technical Support": 0.0,
+          "Marketing": 0.0,
+          "Sales": 1.0
+        },
+        "latency_ms": 10855.51,
+        "input_tokens": 462,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.94e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Sales",
+        "latency_ms": 1026.26,
+        "input_tokens": 146,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.63e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-003",
+      "subject": "Overdue Notice: Invoice #INV-2026-9941 - Wire Remittance Required",
+      "ground_truth": "Finance",
+      "jev": {
+        "choice": "Finance",
+        "confidence": 1.0,
+        "probabilities": {
+          "Sales": 0.0,
+          "Technical Support": 0.0,
+          "Human Resources": 0.0,
+          "Marketing": 0.0,
+          "Finance": 1.0
+        },
+        "latency_ms": 4867.85,
+        "input_tokens": 485,
+        "output_tokens": 54,
+        "estimated_cost_usd": 2.04e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Finance",
+        "latency_ms": 1177.99,
+        "input_tokens": 175,
+        "output_tokens": 1,
+        "estimated_cost_usd": 5.5e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-004",
+      "subject": "Internal Transfer Request: Senior Engineer Transfer to Core Platform Team",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "choice": "Human Resources",
+        "confidence": 1.0,
+        "probabilities": {
+          "Sales": 0.0,
+          "Technical Support": 0.0,
+          "Finance": 0.0,
+          "Human Resources": 1.0,
+          "Marketing": 0.0
+        },
+        "latency_ms": 8091.53,
+        "input_tokens": 450,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.89e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Human Resources",
+        "latency_ms": 855.86,
+        "input_tokens": 145,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.85e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-005",
+      "subject": "CRITICAL INCIDENT: 504 Gateway Timeout Errors on API Gateway /v1/chat",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "choice": "Technical Support",
+        "confidence": 1.0,
+        "probabilities": {
+          "Marketing": 0.0,
+          "Human Resources": 0.0,
+          "Sales": 0.0,
+          "Technical Support": 1.0,
+          "Finance": 0.0
+        },
+        "latency_ms": 276.08,
+        "input_tokens": 457,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.92e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Technical Support",
+        "latency_ms": 773.22,
+        "input_tokens": 150,
+        "output_tokens": 2,
+        "estimated_cost_usd": 5e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-006",
+      "subject": "Invitation: Keynote Sponsorship & Brand Expo Booth at AI World 2026",
+      "ground_truth": "Marketing",
+      "jev": {
+        "choice": "Marketing",
+        "confidence": 0.66,
+        "probabilities": {
+          "Human Resources": 0.0,
+          "Finance": 0.0,
+          "Sales": 0.27,
+          "Technical Support": 0.0,
+          "Marketing": 0.73
+        },
+        "latency_ms": 265.25,
+        "input_tokens": 474,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.99e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Marketing",
+        "latency_ms": 1050.98,
+        "input_tokens": 165,
+        "output_tokens": 1,
+        "estimated_cost_usd": 5.2e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-007",
+      "subject": "RFP Response & Master Services Agreement (MSA) Redlines for Renewal",
+      "ground_truth": "Sales",
+      "jev": {
+        "choice": "Sales",
+        "confidence": 1.0,
+        "probabilities": {
+          "Technical Support": 0.0,
+          "Marketing": 0.0,
+          "Human Resources": 0.0,
+          "Sales": 1.0,
+          "Finance": 0.0
+        },
+        "latency_ms": 10821.35,
+        "input_tokens": 466,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.96e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Sales",
+        "latency_ms": 1026.37,
+        "input_tokens": 156,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.93e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-008",
+      "subject": "Expense Report Rejection: Missing Itemized VAT Receipts for London Trip #EX-4412",
+      "ground_truth": "Finance",
+      "jev": {
+        "choice": "Finance",
+        "confidence": 1.0,
+        "probabilities": {
+          "Technical Support": 0.0,
+          "Marketing": 0.0,
+          "Human Resources": 0.0,
+          "Sales": 0.0,
+          "Finance": 1.0
+        },
+        "latency_ms": 307.7,
+        "input_tokens": 468,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.97e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Finance",
+        "latency_ms": 1641.59,
+        "input_tokens": 153,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.84e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-009",
+      "subject": "Annual Open Enrollment 2026: Health Benefits, Dental & 401(k) Matching",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "choice": "Human Resources",
+        "confidence": 1.0,
+        "probabilities": {
+          "Human Resources": 1.0,
+          "Marketing": 0.0,
+          "Finance": 0.0,
+          "Sales": 0.0,
+          "Technical Support": 0.0
+        },
+        "latency_ms": 308.69,
+        "input_tokens": 470,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.97e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Human Resources",
+        "latency_ms": 1031.29,
+        "input_tokens": 164,
+        "output_tokens": 2,
+        "estimated_cost_usd": 5.42e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-010",
+      "subject": "Bug Report: Python SDK v1.2.3 HMAC Webhook Verification Fails on Windows",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "choice": "Technical Support",
+        "confidence": 1.0,
+        "probabilities": {
+          "Technical Support": 1.0,
+          "Human Resources": 0.0,
+          "Sales": 0.0,
+          "Marketing": 0.0,
+          "Finance": 0.0
+        },
+        "latency_ms": 7383.18,
+        "input_tokens": 467,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.96e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Technical Support",
+        "latency_ms": 1183.62,
+        "input_tokens": 156,
+        "output_tokens": 2,
+        "estimated_cost_usd": 5.18e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-011",
+      "subject": "Featured Placement: Inbound SEO & Guest Editorial Collaboration",
+      "ground_truth": "Marketing",
+      "jev": {
+        "choice": "Marketing",
+        "confidence": 1.0,
+        "probabilities": {
+          "Technical Support": 0.0,
+          "Human Resources": 0.0,
+          "Sales": 0.0,
+          "Marketing": 1.0,
+          "Finance": 0.0
+        },
+        "latency_ms": 239.7,
+        "input_tokens": 448,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.88e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Marketing",
+        "latency_ms": 813.87,
+        "input_tokens": 137,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.36e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-012",
+      "subject": "Demo Request: Point-of-Sale Real-Time Decision Gateway",
+      "ground_truth": "Sales",
+      "jev": {
+        "choice": "Sales",
+        "confidence": 1.0,
+        "probabilities": {
+          "Marketing": 0.0,
+          "Finance": 0.0,
+          "Technical Support": 0.0,
+          "Sales": 1.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 16384.43,
+        "input_tokens": 447,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.88e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Sales",
+        "latency_ms": 844.69,
+        "input_tokens": 140,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.45e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-013",
+      "subject": "FY2026 Form 1099-MISC & Foreign Entity Withholding Audit",
+      "ground_truth": "Finance",
+      "jev": {
+        "choice": "Finance",
+        "confidence": 1.0,
+        "probabilities": {
+          "Marketing": 0.0,
+          "Technical Support": 0.0,
+          "Sales": 0.0,
+          "Finance": 1.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 389.76,
+        "input_tokens": 449,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.89e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Finance",
+        "latency_ms": 717.74,
+        "input_tokens": 139,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.42e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-014",
+      "subject": "Q4 Engineering Headcount Approvals & Visa Sponsorship Guidelines",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "choice": "Human Resources",
+        "confidence": 1.0,
+        "probabilities": {
+          "Human Resources": 1.0,
+          "Finance": 0.0,
+          "Technical Support": 0.0,
+          "Marketing": 0.0,
+          "Sales": 0.0
+        },
+        "latency_ms": 6514.67,
+        "input_tokens": 442,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.86e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Human Resources",
+        "latency_ms": 910.57,
+        "input_tokens": 128,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.34e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-015",
+      "subject": "[P1 Incident] Redis Cluster Node Failover & High Memory Eviction Rates",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "choice": "Technical Support",
+        "confidence": 1.0,
+        "probabilities": {
+          "Sales": 0.0,
+          "Finance": 0.0,
+          "Human Resources": 0.0,
+          "Technical Support": 1.0,
+          "Marketing": 0.0
+        },
+        "latency_ms": 6919.12,
+        "input_tokens": 460,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.93e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Technical Support",
+        "latency_ms": 834.82,
+        "input_tokens": 151,
+        "output_tokens": 2,
+        "estimated_cost_usd": 5.03e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-016",
+      "subject": "YouTube Influencer Sponsorship Contract & Tracking Pixels",
+      "ground_truth": "Marketing",
+      "jev": {
+        "choice": "Marketing",
+        "confidence": 0.99,
+        "probabilities": {
+          "Human Resources": 0.0,
+          "Finance": 0.0,
+          "Sales": 0.0,
+          "Technical Support": 0.0,
+          "Marketing": 1.0
+        },
+        "latency_ms": 21592.68,
+        "input_tokens": 444,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.86e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Marketing",
+        "latency_ms": 925.25,
+        "input_tokens": 133,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.24e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-017",
+      "subject": "Enterprise Procurement: Vendor Security Questionnaire & RFQ",
+      "ground_truth": "Sales",
+      "jev": {
+        "choice": "Sales",
+        "confidence": 0.94,
+        "probabilities": {
+          "Finance": 0.03,
+          "Human Resources": 0.0,
+          "Technical Support": 0.01,
+          "Marketing": 0.0,
+          "Sales": 0.96
+        },
+        "latency_ms": 246.89,
+        "input_tokens": 457,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.92e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Sales",
+        "latency_ms": 984.9,
+        "input_tokens": 144,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.57e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-018",
+      "subject": "Stripe Payout Failure: Bank Account Verification Required (ACH #TR-881)",
+      "ground_truth": "Finance",
+      "jev": {
+        "choice": "Finance",
+        "confidence": 0.99,
+        "probabilities": {
+          "Human Resources": 0.0,
+          "Sales": 0.0,
+          "Finance": 1.0,
+          "Technical Support": 0.0,
+          "Marketing": 0.0
+        },
+        "latency_ms": 311.74,
+        "input_tokens": 453,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.9e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Finance",
+        "latency_ms": 922.77,
+        "input_tokens": 142,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.51e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-019",
+      "subject": "Employee Assistance Program (EAP) & Mental Health Stipends",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "choice": "Human Resources",
+        "confidence": 1.0,
+        "probabilities": {
+          "Human Resources": 1.0,
+          "Sales": 0.0,
+          "Marketing": 0.0,
+          "Finance": 0.0,
+          "Technical Support": 0.0
+        },
+        "latency_ms": 10826.84,
+        "input_tokens": 441,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.85e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Human Resources",
+        "latency_ms": 999.3,
+        "input_tokens": 134,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.52e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-020",
+      "subject": "Dependabot Alert: High Severity RCE in package 'aiohttp' < 3.10.11",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "choice": "Technical Support",
+        "confidence": 1.0,
+        "probabilities": {
+          "Sales": 0.0,
+          "Marketing": 0.0,
+          "Technical Support": 1.0,
+          "Finance": 0.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 263.61,
+        "input_tokens": 460,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.93e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Technical Support",
+        "latency_ms": 1023.79,
+        "input_tokens": 152,
+        "output_tokens": 2,
+        "estimated_cost_usd": 5.06e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-021",
+      "subject": "Media Query: Interview Request with CEO regarding Series B Announcement",
+      "ground_truth": "Marketing",
+      "jev": {
+        "choice": "Marketing",
+        "confidence": 1.0,
+        "probabilities": {
+          "Finance": 0.0,
+          "Human Resources": 0.0,
+          "Sales": 0.0,
+          "Marketing": 1.0,
+          "Technical Support": 0.0
+        },
+        "latency_ms": 4815.51,
+        "input_tokens": 441,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.85e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Marketing",
+        "latency_ms": 922.96,
+        "input_tokens": 137,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.36e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-022",
+      "subject": "Pilot License Agreement: GDPR-Compliant Hospital Decision Engine",
+      "ground_truth": "Sales",
+      "jev": {
+        "choice": "Sales",
+        "confidence": 1.0,
+        "probabilities": {
+          "Human Resources": 0.0,
+          "Marketing": 0.0,
+          "Sales": 1.0,
+          "Finance": 0.0,
+          "Technical Support": 0.0
+        },
+        "latency_ms": 311.22,
+        "input_tokens": 451,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.89e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Sales",
+        "latency_ms": 924.17,
+        "input_tokens": 148,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.69e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-023",
+      "subject": "Monthly Payroll Tax Remittance Summary & State Unemployment Withholdings",
+      "ground_truth": "Finance",
+      "jev": {
+        "choice": "Finance",
+        "confidence": 0.95,
+        "probabilities": {
+          "Marketing": 0.0,
+          "Sales": 0.0,
+          "Human Resources": 0.04,
+          "Technical Support": 0.0,
+          "Finance": 0.96
+        },
+        "latency_ms": 410.68,
+        "input_tokens": 453,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.9e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Finance",
+        "latency_ms": 820.85,
+        "input_tokens": 139,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.42e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-024",
+      "subject": "New York Office Return-to-Work Guidelines & Desk Booking System",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "choice": "Human Resources",
+        "confidence": 1.0,
+        "probabilities": {
+          "Marketing": 0.0,
+          "Sales": 0.0,
+          "Finance": 0.0,
+          "Human Resources": 1.0,
+          "Technical Support": 0.0
+        },
+        "latency_ms": 8092.08,
+        "input_tokens": 445,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.87e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Human Resources",
+        "latency_ms": 1642.71,
+        "input_tokens": 137,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.61e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-025",
+      "subject": "[CRITICAL] PostgreSQL Replication Lag Exceeds 10GB on Read Replica 2",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "choice": "Technical Support",
+        "confidence": 1.0,
+        "probabilities": {
+          "Marketing": 0.0,
+          "Technical Support": 1.0,
+          "Sales": 0.0,
+          "Finance": 0.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 8807.65,
+        "input_tokens": 455,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.91e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Technical Support",
+        "latency_ms": 922.86,
+        "input_tokens": 143,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.79e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-026",
+      "subject": "Final Brand Identity Guidelines & SVG Icon System Delivery",
+      "ground_truth": "Marketing",
+      "jev": {
+        "choice": "Marketing",
+        "confidence": 1.0,
+        "probabilities": {
+          "Human Resources": 0.0,
+          "Marketing": 1.0,
+          "Sales": 0.0,
+          "Finance": 0.0,
+          "Technical Support": 0.0
+        },
+        "latency_ms": 309.05,
+        "input_tokens": 432,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.81e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Marketing",
+        "latency_ms": 859.48,
+        "input_tokens": 124,
+        "output_tokens": 1,
+        "estimated_cost_usd": 3.97e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-027",
+      "subject": "Quote Request: Multi-Cloud Automated Routing for 10,000 Connected Vehicles",
+      "ground_truth": "Sales",
+      "jev": {
+        "choice": "Sales",
+        "confidence": 0.99,
+        "probabilities": {
+          "Finance": 0.0,
+          "Human Resources": 0.0,
+          "Sales": 1.0,
+          "Marketing": 0.0,
+          "Technical Support": 0.0
+        },
+        "latency_ms": 271.07,
+        "input_tokens": 459,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.93e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Sales",
+        "latency_ms": 923.04,
+        "input_tokens": 148,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.69e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-028",
+      "subject": "Monthly Corporate American Express Statement Balance: $78,419.03",
+      "ground_truth": "Finance",
+      "jev": {
+        "choice": "Finance",
+        "confidence": 1.0,
+        "probabilities": {
+          "Human Resources": 0.0,
+          "Sales": 0.0,
+          "Marketing": 0.0,
+          "Technical Support": 0.0,
+          "Finance": 1.0
+        },
+        "latency_ms": 11987.53,
+        "input_tokens": 446,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.87e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Finance",
+        "latency_ms": 1572.18,
+        "input_tokens": 136,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.33e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-029",
+      "subject": "Confidential Grievance Submission: Workplace Harassment Inquiry",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "choice": "Human Resources",
+        "confidence": 1.0,
+        "probabilities": {
+          "Marketing": 0.0,
+          "Sales": 0.0,
+          "Human Resources": 1.0,
+          "Technical Support": 0.0,
+          "Finance": 0.0
+        },
+        "latency_ms": 9897.89,
+        "input_tokens": 448,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.88e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Human Resources",
+        "latency_ms": 1142.64,
+        "input_tokens": 134,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.52e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-030",
+      "subject": "Issue: WebSocket Connection Drops after 60s Idle Timeout on EU Node",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "choice": "Technical Support",
+        "confidence": 1.0,
+        "probabilities": {
+          "Finance": 0.0,
+          "Human Resources": 0.0,
+          "Sales": 0.0,
+          "Marketing": 0.0,
+          "Technical Support": 1.0
+        },
+        "latency_ms": 512.24,
+        "input_tokens": 455,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.91e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Technical Support",
+        "latency_ms": 911.04,
+        "input_tokens": 146,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.88e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-031",
+      "subject": "Google Ads Performance Audit: 35% ROAS Improvement in Enterprise Campaigns",
+      "ground_truth": "Marketing",
+      "jev": {
+        "choice": "Marketing",
+        "confidence": 0.98,
+        "probabilities": {
+          "Sales": 0.01,
+          "Marketing": 0.99,
+          "Technical Support": 0.0,
+          "Finance": 0.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 308.58,
+        "input_tokens": 443,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.86e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Marketing",
+        "latency_ms": 820.3,
+        "input_tokens": 135,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.3e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-032",
+      "subject": "FedRAMP Moderate Compliance Confirmation & Sole-Source RFP",
+      "ground_truth": "Sales",
+      "jev": {
+        "choice": "Sales",
+        "confidence": 0.97,
+        "probabilities": {
+          "Finance": 0.0,
+          "Human Resources": 0.0,
+          "Technical Support": 0.02,
+          "Marketing": 0.0,
+          "Sales": 0.98
+        },
+        "latency_ms": 5839.7,
+        "input_tokens": 443,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.86e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Sales",
+        "latency_ms": 924.3,
+        "input_tokens": 133,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.24e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-033",
+      "subject": "Commercial Money Market Yield & Overnight Sweep Confirmation",
+      "ground_truth": "Finance",
+      "jev": {
+        "choice": "Finance",
+        "confidence": 1.0,
+        "probabilities": {
+          "Finance": 1.0,
+          "Human Resources": 0.0,
+          "Sales": 0.0,
+          "Marketing": 0.0,
+          "Technical Support": 0.0
+        },
+        "latency_ms": 308.54,
+        "input_tokens": 459,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.93e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Finance",
+        "latency_ms": 820.4,
+        "input_tokens": 146,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.63e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-034",
+      "subject": "Reminder: 360-Degree Peer Feedback Deadline Tomorrow 5 PM",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "choice": "Human Resources",
+        "confidence": 1.0,
+        "probabilities": {
+          "Sales": 0.0,
+          "Finance": 0.0,
+          "Marketing": 0.0,
+          "Technical Support": 0.0,
+          "Human Resources": 1.0
+        },
+        "latency_ms": 21507.77,
+        "input_tokens": 440,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.85e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Human Resources",
+        "latency_ms": 1081.13,
+        "input_tokens": 131,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.43e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-035",
+      "subject": "URGENT: TLS/SSL Certificate for *.company.com Expires in 48 Hours",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "choice": "Technical Support",
+        "confidence": 1.0,
+        "probabilities": {
+          "Human Resources": 0.0,
+          "Finance": 0.0,
+          "Marketing": 0.0,
+          "Technical Support": 1.0,
+          "Sales": 0.0
+        },
+        "latency_ms": 254.7,
+        "input_tokens": 450,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.89e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Technical Support",
+        "latency_ms": 1348.89,
+        "input_tokens": 146,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.88e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-036",
+      "subject": "Podcast Guest Invitation: Deep Dive on Decision AI vs Generative LLMs",
+      "ground_truth": "Marketing",
+      "jev": {
+        "choice": "Marketing",
+        "confidence": 0.99,
+        "probabilities": {
+          "Marketing": 0.99,
+          "Sales": 0.01,
+          "Human Resources": 0.0,
+          "Technical Support": 0.0,
+          "Finance": 0.0
+        },
+        "latency_ms": 396.8,
+        "input_tokens": 445,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.87e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Marketing",
+        "latency_ms": 1128.59,
+        "input_tokens": 137,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.36e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-037",
+      "subject": "Warm Inbound Introduction: Fortune 100 Insurance Carrier Looking for Fast Routing",
+      "ground_truth": "Sales",
+      "jev": {
+        "choice": "Sales",
+        "confidence": 1.0,
+        "probabilities": {
+          "Technical Support": 0.0,
+          "Human Resources": 0.0,
+          "Sales": 1.0,
+          "Marketing": 0.0,
+          "Finance": 0.0
+        },
+        "latency_ms": 8706.62,
+        "input_tokens": 446,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.87e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Sales",
+        "latency_ms": 1083.52,
+        "input_tokens": 140,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.45e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-038",
+      "subject": "Interim Revenue Recognition Audit: ASC 606 Multi-Year Subscription Amortization",
+      "ground_truth": "Finance",
+      "jev": {
+        "choice": "Finance",
+        "confidence": 1.0,
+        "probabilities": {
+          "Marketing": 0.0,
+          "Technical Support": 0.0,
+          "Human Resources": 0.0,
+          "Sales": 0.0,
+          "Finance": 1.0
+        },
+        "latency_ms": 26874.3,
+        "input_tokens": 439,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.84e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Finance",
+        "latency_ms": 1026.06,
+        "input_tokens": 130,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.15e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-039",
+      "subject": "Parental Leave Approval & FMLA Benefit Schedule: Oct 2026 - Jan 2027",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "choice": "Human Resources",
+        "confidence": 1.0,
+        "probabilities": {
+          "Finance": 0.0,
+          "Human Resources": 1.0,
+          "Technical Support": 0.0,
+          "Marketing": 0.0,
+          "Sales": 0.0
+        },
+        "latency_ms": 14952.8,
+        "input_tokens": 449,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.89e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Human Resources",
+        "latency_ms": 1026.59,
+        "input_tokens": 138,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.64e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-040",
+      "subject": "Build Failure in Pipeline #9021: Docker Image Vulnerability Scan Blocked Merge",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "choice": "Technical Support",
+        "confidence": 1.0,
+        "probabilities": {
+          "Human Resources": 0.0,
+          "Finance": 0.0,
+          "Sales": 0.0,
+          "Technical Support": 1.0,
+          "Marketing": 0.0
+        },
+        "latency_ms": 52534.53,
+        "input_tokens": 457,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.92e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Technical Support",
+        "latency_ms": 1026.33,
+        "input_tokens": 145,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.85e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-041",
+      "subject": "Keyword Alert: Company Moved to #1 Position on Google for 'System One Decision AI'",
+      "ground_truth": "Marketing",
+      "jev": {
+        "choice": "Marketing",
+        "confidence": 1.0,
+        "probabilities": {
+          "Finance": 0.0,
+          "Marketing": 1.0,
+          "Technical Support": 0.0,
+          "Sales": 0.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 1023.63,
+        "input_tokens": 453,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.9e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Marketing",
+        "latency_ms": 821.31,
+        "input_tokens": 144,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.57e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-042",
+      "subject": "Contract Renewal & Multi-Region Expansion: 20 Million Monthly Decisions",
+      "ground_truth": "Sales",
+      "jev": {
+        "choice": "Sales",
+        "confidence": 1.0,
+        "probabilities": {
+          "Sales": 1.0,
+          "Marketing": 0.0,
+          "Technical Support": 0.0,
+          "Finance": 0.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 3587.54,
+        "input_tokens": 449,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.89e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Sales",
+        "latency_ms": 1536.51,
+        "input_tokens": 140,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.45e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-043",
+      "subject": "Q3 CapEx Asset Depreciation Schedule: GPU Cluster & Server Hardware",
+      "ground_truth": "Finance",
+      "jev": {
+        "choice": "Finance",
+        "confidence": 1.0,
+        "probabilities": {
+          "Sales": 0.0,
+          "Marketing": 0.0,
+          "Technical Support": 0.0,
+          "Finance": 1.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 310.14,
+        "input_tokens": 451,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.89e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Finance",
+        "latency_ms": 922.66,
+        "input_tokens": 144,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.57e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-044",
+      "subject": "USCIS Form I-797 Approval Notice for O-1A Alien of Extraordinary Ability",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "choice": "Human Resources",
+        "confidence": 1.0,
+        "probabilities": {
+          "Human Resources": 1.0,
+          "Finance": 0.0,
+          "Technical Support": 0.0,
+          "Marketing": 0.0,
+          "Sales": 0.0
+        },
+        "latency_ms": 44139.25,
+        "input_tokens": 454,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.91e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Human Resources",
+        "latency_ms": 921.51,
+        "input_tokens": 140,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.7e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-045",
+      "subject": "DDoS Mitigation Notice: 45 Million Packet/Sec SYN Flood Mitigated on Edge",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "choice": "Technical Support",
+        "confidence": 1.0,
+        "probabilities": {
+          "Human Resources": 0.0,
+          "Marketing": 0.0,
+          "Finance": 0.0,
+          "Technical Support": 1.0,
+          "Sales": 0.0
+        },
+        "latency_ms": 320.29,
+        "input_tokens": 466,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.96e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Technical Support",
+        "latency_ms": 913.23,
+        "input_tokens": 147,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.91e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-046",
+      "subject": "Product Hunt #1 Product of the Day Badge & Featured Newsletter Inclusion",
+      "ground_truth": "Marketing",
+      "jev": {
+        "choice": "Marketing",
+        "confidence": 0.99,
+        "probabilities": {
+          "Sales": 0.01,
+          "Marketing": 0.99,
+          "Technical Support": 0.0,
+          "Finance": 0.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 8094.07,
+        "input_tokens": 437,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.84e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Marketing",
+        "latency_ms": 1025.99,
+        "input_tokens": 126,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.03e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-047",
+      "subject": "Competitive Evaluation: Final Selection between Jev vs In-House Bert Classifier",
+      "ground_truth": "Sales",
+      "jev": {
+        "choice": "Sales",
+        "confidence": 0.98,
+        "probabilities": {
+          "Sales": 0.99,
+          "Marketing": 0.0,
+          "Human Resources": 0.0,
+          "Technical Support": 0.01,
+          "Finance": 0.0
+        },
+        "latency_ms": 411.55,
+        "input_tokens": 446,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.87e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Sales",
+        "latency_ms": 922.31,
+        "input_tokens": 135,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.3e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-048",
+      "subject": "Notice of Acceptance: Federal Corporate Tax Return Form 1120 Accepted",
+      "ground_truth": "Finance",
+      "jev": {
+        "choice": "Finance",
+        "confidence": 1.0,
+        "probabilities": {
+          "Finance": 1.0,
+          "Sales": 0.0,
+          "Marketing": 0.0,
+          "Technical Support": 0.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 5122.68,
+        "input_tokens": 450,
+        "output_tokens": 54,
+        "estimated_cost_usd": 1.89e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Finance",
+        "latency_ms": 939.15,
+        "input_tokens": 140,
+        "output_tokens": 1,
+        "estimated_cost_usd": 4.45e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-049",
+      "subject": "Annual Executive Equity Refresh & Employee Stock Purchase Plan (ESPP) Allocation",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "choice": "Human Resources",
+        "confidence": 0.83,
+        "probabilities": {
+          "Finance": 0.14,
+          "Human Resources": 0.86,
+          "Technical Support": 0.0,
+          "Marketing": 0.0,
+          "Sales": 0.0
+        },
+        "latency_ms": 11574.15,
+        "input_tokens": 444,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.86e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Human Resources",
+        "latency_ms": 959.15,
+        "input_tokens": 137,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.61e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-050",
+      "subject": "Kafka Consumer Lag Surge: Partition 14 Rebalance Stalled on Event Stream",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "choice": "Technical Support",
+        "confidence": 1.0,
+        "probabilities": {
+          "Finance": 0.0,
+          "Marketing": 0.0,
+          "Technical Support": 1.0,
+          "Sales": 0.0,
+          "Human Resources": 0.0
+        },
+        "latency_ms": 259.94,
+        "input_tokens": 453,
+        "output_tokens": 55,
+        "estimated_cost_usd": 1.9e-05,
+        "is_correct": true
+      },
+      "gemini": {
+        "choice": "Technical Support",
+        "latency_ms": 1487.06,
+        "input_tokens": 145,
+        "output_tokens": 2,
+        "estimated_cost_usd": 4.85e-05,
+        "is_correct": true
+      },
+      "models_agree": true
+    }
+  ]
+}
