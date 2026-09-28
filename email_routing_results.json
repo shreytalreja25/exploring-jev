@@ -1,0 +1,338 @@
+{
+  "metrics": {
+    "total_emails": 10,
+    "jev_accuracy": 70.0,
+    "gemini_accuracy": 100.0,
+    "agreement_rate": 70.0,
+    "jev_avg_latency_ms": 1957.2509999999997,
+    "gemini_avg_latency_ms": 1073.595
+  },
+  "detailed_results": [
+    {
+      "id": "EML-001",
+      "subject": "Q4 Product Launch Ad Creatives & Omnichannel Campaign Assets",
+      "ground_truth": "Marketing",
+      "jev": {
+        "prediction": "Marketing",
+        "latency_ms": 2088.63,
+        "is_correct": true,
+        "underlying_model": "openai/gpt-6-luna"
+      },
+      "gemini": {
+        "prediction": "Marketing",
+        "latency_ms": 921.05,
+        "is_correct": true,
+        "underlying_model": "google/gemini-2.5-flash"
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-002",
+      "subject": "Inquiry: Enterprise License Tier & Volume Pricing for 500 Seats",
+      "ground_truth": "Sales",
+      "jev": {
+        "prediction": "Sales",
+        "latency_ms": 1337.92,
+        "is_correct": true,
+        "underlying_model": "openai/gpt-6-luna"
+      },
+      "gemini": {
+        "prediction": "Sales",
+        "latency_ms": 819.68,
+        "is_correct": true,
+        "underlying_model": "google/gemini-2.5-flash"
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-003",
+      "subject": "Overdue Notice: Invoice #INV-2026-9941 - Wire Remittance Required",
+      "ground_truth": "Finance",
+      "jev": {
+        "prediction": "Finance",
+        "latency_ms": 2769.7,
+        "is_correct": true,
+        "underlying_model": "openai/gpt-6-luna"
+      },
+      "gemini": {
+        "prediction": "Finance",
+        "latency_ms": 984.91,
+        "is_correct": true,
+        "underlying_model": "google/gemini-2.5-flash"
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-004",
+      "subject": "Internal Transfer Request: Senior Engineer Transfer to Core Platform Team",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "prediction": "",
+        "latency_ms": 1499.79,
+        "is_correct": false,
+        "underlying_model": "openai/gpt-6-luna"
+      },
+      "gemini": {
+        "prediction": "Human Resources",
+        "latency_ms": 859.03,
+        "is_correct": true,
+        "underlying_model": "google/gemini-2.5-flash"
+      },
+      "models_agree": false
+    },
+    {
+      "id": "EML-005",
+      "subject": "CRITICAL INCIDENT: 504 Gateway Timeout Errors on API Gateway /v1/chat",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "prediction": "",
+        "latency_ms": 674.07,
+        "is_correct": false,
+        "underlying_model": "deepseek/deepseek-v4.1-flash"
+      },
+      "gemini": {
+        "prediction": "Technical Support",
+        "latency_ms": 910.09,
+        "is_correct": true,
+        "underlying_model": "google/gemini-2.5-flash"
+      },
+      "models_agree": false
+    },
+    {
+      "id": "EML-006",
+      "subject": "Invitation: Keynote Sponsorship & Brand Expo Booth at AI World 2026",
+      "ground_truth": "Marketing",
+      "jev": {
+        "prediction": "Marketing",
+        "latency_ms": 1235.68,
+        "is_correct": true,
+        "underlying_model": "openai/gpt-6-luna"
+      },
+      "gemini": {
+        "prediction": "Marketing",
+        "latency_ms": 1535.12,
+        "is_correct": true,
+        "underlying_model": "google/gemini-2.5-flash"
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-007",
+      "subject": "RFP Response & Master Services Agreement (MSA) Redlines for Renewal",
+      "ground_truth": "Sales",
+      "jev": {
+        "prediction": "",
+        "latency_ms": 3689.83,
+        "is_correct": false,
+        "underlying_model": "openai/gpt-6-luna"
+      },
+      "gemini": {
+        "prediction": "Sales",
+        "latency_ms": 1032.92,
+        "is_correct": true,
+        "underlying_model": "google/gemini-2.5-flash"
+      },
+      "models_agree": false
+    },
+    {
+      "id": "EML-008",
+      "subject": "Expense Report Rejection: Missing Itemized VAT Receipts for London Trip #EX-4412",
+      "ground_truth": "Finance",
+      "jev": {
+        "prediction": "Finance",
+        "latency_ms": 3486.79,
+        "is_correct": true,
+        "underlying_model": "openai/gpt-6-luna"
+      },
+      "gemini": {
+        "prediction": "Finance",
+        "latency_ms": 920.49,
+        "is_correct": true,
+        "underlying_model": "google/gemini-2.5-flash"
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-009",
+      "subject": "Annual Open Enrollment 2026: Health Benefits, Dental & 401(k) Matching",
+      "ground_truth": "Human Resources",
+      "jev": {
+        "prediction": "Human Resources",
+        "latency_ms": 1540.85,
+        "is_correct": true,
+        "underlying_model": "openai/gpt-6-luna"
+      },
+      "gemini": {
+        "prediction": "Human Resources",
+        "latency_ms": 1733.78,
+        "is_correct": true,
+        "underlying_model": "google/gemini-2.5-flash"
+      },
+      "models_agree": true
+    },
+    {
+      "id": "EML-010",
+      "subject": "Bug Report: Python SDK v1.2.3 HMAC Webhook Verification Fails on Windows",
+      "ground_truth": "Technical Support",
+      "jev": {
+        "prediction": "Technical Support",
+        "latency_ms": 1249.25,
+        "is_correct": true,
+        "underlying_model": "openai/gpt-6-luna"
+      },
+      "gemini": {
+        "prediction": "Technical Support",
+        "latency_ms": 1018.88,
+        "is_correct": true,
+        "underlying_model": "google/gemini-2.5-flash"
+      },
+      "models_agree": true
+    }
+  ],
+  "jev_sorted_inbox": {
+    "Marketing": [
+      {
+        "id": "EML-001",
+        "subject": "Q4 Product Launch Ad Creatives & Omnichannel Campaign Assets",
+        "from": "sarah.jenkins@growthpartners.io",
+        "ground_truth": "Marketing"
+      },
+      {
+        "id": "EML-006",
+        "subject": "Invitation: Keynote Sponsorship & Brand Expo Booth at AI World 2026",
+        "from": "events@global-tech-summit.com",
+        "ground_truth": "Marketing"
+      }
+    ],
+    "Sales": [
+      {
+        "id": "EML-002",
+        "subject": "Inquiry: Enterprise License Tier & Volume Pricing for 500 Seats",
+        "from": "david.vance@apexlogistics.com",
+        "ground_truth": "Sales"
+      }
+    ],
+    "Finance": [
+      {
+        "id": "EML-003",
+        "subject": "Overdue Notice: Invoice #INV-2026-9941 - Wire Remittance Required",
+        "from": "billing-ops@cloudhost-provider.net",
+        "ground_truth": "Finance"
+      },
+      {
+        "id": "EML-008",
+        "subject": "Expense Report Rejection: Missing Itemized VAT Receipts for London Trip #EX-4412",
+        "from": "travel-desk@company.com",
+        "ground_truth": "Finance"
+      }
+    ],
+    "": [
+      {
+        "id": "EML-004",
+        "subject": "Internal Transfer Request: Senior Engineer Transfer to Core Platform Team",
+        "from": "claire.reynolds@company.com",
+        "ground_truth": "Human Resources"
+      },
+      {
+        "id": "EML-005",
+        "subject": "CRITICAL INCIDENT: 504 Gateway Timeout Errors on API Gateway /v1/chat",
+        "from": "ops-monitoring@datacenter-west.org",
+        "ground_truth": "Technical Support"
+      },
+      {
+        "id": "EML-007",
+        "subject": "RFP Response & Master Services Agreement (MSA) Redlines for Renewal",
+        "from": "rachel.zhao@fintech-ventures.co",
+        "ground_truth": "Sales"
+      }
+    ],
+    "Human Resources": [
+      {
+        "id": "EML-009",
+        "subject": "Annual Open Enrollment 2026: Health Benefits, Dental & 401(k) Matching",
+        "from": "benefits@company.com",
+        "ground_truth": "Human Resources"
+      }
+    ],
+    "Technical Support": [
+      {
+        "id": "EML-010",
+        "subject": "Bug Report: Python SDK v1.2.3 HMAC Webhook Verification Fails on Windows",
+        "from": "alex.m@developer-community.io",
+        "ground_truth": "Technical Support"
+      }
+    ]
+  },
+  "gemini_sorted_inbox": {
+    "Marketing": [
+      {
+        "id": "EML-001",
+        "subject": "Q4 Product Launch Ad Creatives & Omnichannel Campaign Assets",
+        "from": "sarah.jenkins@growthpartners.io",
+        "ground_truth": "Marketing"
+      },
+      {
+        "id": "EML-006",
+        "subject": "Invitation: Keynote Sponsorship & Brand Expo Booth at AI World 2026",
+        "from": "events@global-tech-summit.com",
+        "ground_truth": "Marketing"
+      }
+    ],
+    "Sales": [
+      {
+        "id": "EML-002",
+        "subject": "Inquiry: Enterprise License Tier & Volume Pricing for 500 Seats",
+        "from": "david.vance@apexlogistics.com",
+        "ground_truth": "Sales"
+      },
+      {
+        "id": "EML-007",
+        "subject": "RFP Response & Master Services Agreement (MSA) Redlines for Renewal",
+        "from": "rachel.zhao@fintech-ventures.co",
+        "ground_truth": "Sales"
+      }
+    ],
+    "Finance": [
+      {
+        "id": "EML-003",
+        "subject": "Overdue Notice: Invoice #INV-2026-9941 - Wire Remittance Required",
+        "from": "billing-ops@cloudhost-provider.net",
+        "ground_truth": "Finance"
+      },
+      {
+        "id": "EML-008",
+        "subject": "Expense Report Rejection: Missing Itemized VAT Receipts for London Trip #EX-4412",
+        "from": "travel-desk@company.com",
+        "ground_truth": "Finance"
+      }
+    ],
+    "Human Resources": [
+      {
+        "id": "EML-004",
+        "subject": "Internal Transfer Request: Senior Engineer Transfer to Core Platform Team",
+        "from": "claire.reynolds@company.com",
+        "ground_truth": "Human Resources"
+      },
+      {
+        "id": "EML-009",
+        "subject": "Annual Open Enrollment 2026: Health Benefits, Dental & 401(k) Matching",
+        "from": "benefits@company.com",
+        "ground_truth": "Human Resources"
+      }
+    ],
+    "Technical Support": [
+      {
+        "id": "EML-005",
+        "subject": "CRITICAL INCIDENT: 504 Gateway Timeout Errors on API Gateway /v1/chat",
+        "from": "ops-monitoring@datacenter-west.org",
+        "ground_truth": "Technical Support"
+      },
+      {
+        "id": "EML-010",
+        "subject": "Bug Report: Python SDK v1.2.3 HMAC Webhook Verification Fails on Windows",
+        "from": "alex.m@developer-community.io",
+        "ground_truth": "Technical Support"
+      }
+    ]
+  }
+}

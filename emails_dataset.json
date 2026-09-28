@@ -1,0 +1,92 @@
+[
+  {
+    "id": "EML-001",
+    "from": "sarah.jenkins@growthpartners.io",
+    "to": "campaigns@company.com",
+    "cc": "cmo@company.com",
+    "subject": "Q4 Product Launch Ad Creatives & Omnichannel Campaign Assets",
+    "body": "Hi team, we've finalized the creative deck, billboard copies, and social paid ad spend allocations for the upcoming Q4 rollout. Please review the attached Figma mocks and let us know if we have sign-off to begin A/B testing on Meta and TikTok.",
+    "ground_truth": "Marketing"
+  },
+  {
+    "id": "EML-002",
+    "from": "david.vance@apexlogistics.com",
+    "to": "inbound-sales@company.com",
+    "cc": "procurement@apexlogistics.com",
+    "subject": "Inquiry: Enterprise License Tier & Volume Pricing for 500 Seats",
+    "body": "Hello, Apex Logistics is evaluating enterprise software solutions for 500 active seats across North America. We would like to schedule a product demo and discuss volume discounting, multi-year contracts, and onboarding timelines with your account executive.",
+    "ground_truth": "Sales"
+  },
+  {
+    "id": "EML-003",
+    "from": "billing-ops@cloudhost-provider.net",
+    "to": "accounts-payable@company.com",
+    "cc": "finance-approvals@company.com",
+    "subject": "Overdue Notice: Invoice #INV-2026-9941 - Wire Remittance Required",
+    "body": "Dear Accounts Payable, this is an automated reminder that invoice #INV-2026-9941 for $14,250.00 is 15 days past due. Please transmit remittance advice or ACH transaction receipt to accounts@cloudhost-provider.net to avoid suspension of cluster resources.",
+    "ground_truth": "Finance"
+  },
+  {
+    "id": "EML-004",
+    "from": "claire.reynolds@company.com",
+    "to": "people-ops@company.com",
+    "cc": "mark.stevens@company.com",
+    "subject": "Internal Transfer Request: Senior Engineer Transfer to Core Platform Team",
+    "body": "Hi HR Team, following my mid-year performance review with my manager Mark, I am officially submitting my application for the open Senior Software Engineer role on the Core Infrastructure team. Could you please send over the transfer guidelines and compensation band adjustments?",
+    "ground_truth": "Human Resources"
+  },
+  {
+    "id": "EML-005",
+    "from": "ops-monitoring@datacenter-west.org",
+    "to": "support@company.com",
+    "cc": "incident-response@company.com",
+    "subject": "CRITICAL INCIDENT: 504 Gateway Timeout Errors on API Gateway /v1/chat",
+    "body": "High severity alert: Our production edge reverse proxy is recording sustained 504 Gateway Timeouts across US-West nodes. Downstream worker processes are failing health checks and crashing under socket connection backpressure. Immediate engineering triage required.",
+    "ground_truth": "Technical Support"
+  },
+  {
+    "id": "EML-006",
+    "from": "events@global-tech-summit.com",
+    "to": "marketing-leads@company.com",
+    "cc": "press@company.com",
+    "subject": "Invitation: Keynote Sponsorship & Brand Expo Booth at AI World 2026",
+    "body": "Dear Marketing Director, we would love to feature your company as a Tier-1 Diamond Sponsor at AI World Summit 2026 in San Francisco. The sponsorship package includes prime exhibit booth positioning, brand logo placement across 50,000 attendees, and a 20-minute mainstage keynote.",
+    "ground_truth": "Marketing"
+  },
+  {
+    "id": "EML-007",
+    "from": "rachel.zhao@fintech-ventures.co",
+    "to": "sales@company.com",
+    "cc": "legal@fintech-ventures.co",
+    "subject": "RFP Response & Master Services Agreement (MSA) Redlines for Renewal",
+    "body": "Hi Sales Team, our executive board has approved proceeding with the renewal. Attached is our legal counsel's marked-up MSA with revisions to Section 8 regarding data residency and indemnification clauses. Can we hop on a call tomorrow at 2 PM ET to finalize the contract?",
+    "ground_truth": "Sales"
+  },
+  {
+    "id": "EML-008",
+    "from": "travel-desk@company.com",
+    "to": "marcus.brooks@company.com",
+    "cc": "payroll-audit@company.com",
+    "subject": "Expense Report Rejection: Missing Itemized VAT Receipts for London Trip #EX-4412",
+    "body": "Marcus, your recent expense submission for the Q3 London business trip has been flagged by corporate audit. The hotel folio and train receipts lack itemized VAT breakdowns required under our financial compliance policy. Please upload the receipts to Concur by Friday.",
+    "ground_truth": "Finance"
+  },
+  {
+    "id": "EML-009",
+    "from": "benefits@company.com",
+    "to": "all-employees@company.com",
+    "cc": "hr-leadership@company.com",
+    "subject": "Annual Open Enrollment 2026: Health Benefits, Dental & 401(k) Matching",
+    "body": "Hello Everyone, our annual Open Enrollment window opens Monday, October 5th. All eligible full-time employees must log into the HR portal to select their medical, dental, and vision benefit tiers, and review employer 401(k) matching contributions for fiscal year 2027.",
+    "ground_truth": "Human Resources"
+  },
+  {
+    "id": "EML-010",
+    "from": "alex.m@developer-community.io",
+    "to": "helpdesk@company.com",
+    "cc": "dev-support@company.com",
+    "subject": "Bug Report: Python SDK v1.2.3 HMAC Webhook Verification Fails on Windows",
+    "body": "Hello Support, while integrating your official Python SDK on Windows 11, the `verify_webhook_signature` function consistently throws an InvalidSignatureError due to CRLF newline handling in byte comparison. Linux and macOS work fine. Sample code and reproduction logs attached.",
+    "ground_truth": "Technical Support"
+  }
+]
