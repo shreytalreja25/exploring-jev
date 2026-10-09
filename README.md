@@ -47,24 +47,26 @@ Evaluated across progressive enterprise workloads ($N \in \{10, 20, 30, 40, 50\}
 
 ---
 
-## 🔍 Key Findings & Architectural Insights
+## 🚀 1,000 Enterprise Email Decision Benchmark (GPT-6 Luna Face-Off)
 
-### 1. The OpenRouter `typesafe/jev-router` Anomaly
-- OpenRouter's `typesafe/jev-router` is an **agentic meta-router**, not an isolated decision head. It delegates queries to `openai/gpt-6-luna` (emitting ChatGPT personas) and `deepseek/deepseek-v4.1-flash`.
-- Under strict token limits (`max_tokens=25`), hidden Chain-of-Thought (CoT) reasoning tokens (19–59 tokens) exhaust the generation quota, causing silent truncation failures (`finish_reason: length`).
+To evaluate massive enterprise throughput, we scaled the benchmark to **1,000 full enterprise customer emails** balanced across 5 operational departments, comparing OpenAI's new **Decisions API (`gpt-6-luna`)** against TypeSafe AI's Jev, Laya, and local Ollama models.
 
-### 2. Native System-One Superiority (`typesafe/jev-1.13`)
-- Direct invocation via `typesafe-sdk` with `state` + `Choice` criteria bypasses generative routing entirely.
-- Achieved **100.0% accuracy** across all 50 enterprise emails.
-- Achieved near-perfect calibration (**ECE = 0.015**, mean confidence: 98.5%).
-- Delivered a **58.8% cost advantage (2.43x cheaper)** compared to Gemini 2.5 Flash ($0.000951 vs. $0.002310).
+![1,000 Email Accuracy & F1](./figures/email_1000_accuracy_f1_comparison.png)
 
-### 3. Open-Weight Local Decision Inference with Laya (`convaiinnovations/laya`)
-- Laya packages a 421M parameter ModernBERT-Large encoder into an 807 MB footprint with an 8,192-token context window.
-- Running locally on CPU (AVX2), Laya achieved **100% accuracy at N=10 and N=20**, scaling to **92.0% across all 50 emails**.
-- Laya delivered a deterministic **624.7 ms P50 latency**—faster than cloud Gemini by ~324 ms and unaffected by remote cloud container queueing.
-- Operates at **$0.00 API cost**, making it the premier choice for air-gapped, privacy-sensitive enterprise pipelines.
-- Exhibits high soft-max entropy (**ECE = 0.745**), indicating temperature calibration is required before probability gating.
+| Model Architecture | Top-1 Accuracy | Macro F1 | P50 Latency | P99 Latency | Throughput | ECE Error | Cost / 1M Decisions |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **OpenAI GPT-6 Luna (Decisions API)** | **100.0%** | **100.0%** | 144.0 ms | 1,265.3 ms | 5.28 emails/s | **0.0165** | $29.61 ($0 out tokens) |
+| **Qwen 3.5 9B Abliterated (Ollama)** | 96.5% | 96.6% | 13,271.0 ms | 14,005.0 ms | 0.08 emails/s | 0.0543 | **$0.00** |
+| **Llama 3.1 8B (Ollama)** | 95.1% | 95.2% | 3,862.5 ms | 4,257.0 ms | 0.26 emails/s | 0.0901 | **$0.00** |
+| **Jev (TypeSafe AI System-One)** | 85.1% | 86.1% | 101.0 ms | 114.0 ms | 10.00 emails/s | 0.0730 | $2.83 |
+| **Laya (Open-Weight ModernBERT)** | 71.9% | 74.7% | **61.0 ms** | **72.0 ms** | **16.50 emails/s** | 0.3445 | **$0.00** |
+| **Llama 3.2 1B (Ollama)** | 31.4% | 38.3% | 1,587.0 ms | 1,777.0 ms | 0.63 emails/s | 0.3154 | **$0.00** |
+
+![1,000 Email Latency vs Throughput](./figures/email_1000_latency_throughput_tradeoff.png)
+
+### Multi-Modal Vision Expansion
+- **UNSW 15-Class Aerial Scene Classification** (from [shreytalreja25/Image-Classification-CV](https://github.com/shreytalreja25/Image-Classification-CV)): Zero-shot GPT-6 Luna achieved **90.0% Accuracy** (P50 176.2 ms), outperforming zero-shot CLIP ViT-B/32 (81.3%) and matching supervised ResNet-18 (90.7%).
+- **Clinical Trauma Radiograph Fracture Detection**: GPT-6 Luna achieved **100.0% specificity** (zero false positives) across 35 trauma radiographs, with 52.6% sensitivity in Choice mode and 42.1% in Predicate probability mode.
 
 ---
 
